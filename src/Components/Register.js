@@ -99,7 +99,7 @@ const Register = (props) => {
 
                 <button type="submit">Register Account</button>
             </form>
-            {serverMessage ? <Message message={serverMessage} /> : null}
+            {serverMessage ? <Message message={serverMessage.msgBody} /> : null}
         </div>
     );
 };
