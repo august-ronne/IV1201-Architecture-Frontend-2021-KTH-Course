@@ -60,7 +60,7 @@ const Register = (props) => {
                     value={user.firstName}
                     onChange={onChange}
                 />
-
+                <br />
                 <label htmlFor="lastName">Last Name:</label>
                 <input
                     type="text"

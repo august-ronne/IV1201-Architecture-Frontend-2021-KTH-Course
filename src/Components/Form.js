@@ -19,11 +19,12 @@ import RegisterSchema from "../Models/RegisterFormModel";
 */
 
 const Form = (props) => {
-    const { register, handleSubmit, errors } = useForm({
+    const { register, handleSubmit, errors, reset } = useForm({
         resolver: yupResolver(RegisterSchema),
     });
     const submitForm = (data) => {
         console.log(data);
+        reset();
     };
 
     return (
@@ -38,7 +39,7 @@ const Form = (props) => {
                 {errors.firstName ? (
                     <Message message={errors.firstName.message} />
                 ) : null}
-
+                <br />
                 <input
                     type="text"
                     name="lastName"
@@ -48,7 +49,7 @@ const Form = (props) => {
                 {errors.lastName ? (
                     <Message message={errors.lastName.message} />
                 ) : null}
-
+                <br />
                 <input
                     type="text"
                     name="email"
@@ -58,7 +59,7 @@ const Form = (props) => {
                 {errors.email ? (
                     <Message message={errors.email.message} />
                 ) : null}
-
+                <br />
                 <input
                     type="text"
                     name="username"
@@ -68,13 +69,17 @@ const Form = (props) => {
                 {errors.username ? (
                     <Message message={errors.username.message} />
                 ) : null}
-
+                <br />
                 <input
                     type="text"
                     name="password"
                     placeholder="Password..."
                     ref={register}
                 />
+                {errors.username ? (
+                    <Message message={errors.username.message} />
+                ) : null}
+                <br />
                 <input
                     type="text"
                     name="confirmPassword"
@@ -84,7 +89,7 @@ const Form = (props) => {
                 {errors.confirmPassword ? (
                     <Message message="Passwords must match" />
                 ) : null}
-
+                <br />
                 <button type="submit">Register Account</button>
             </form>
         </div>

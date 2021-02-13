@@ -8,7 +8,7 @@ function App() {
         <Router>
             <Navbar />
             <Route exact path="/" component={Home} />
-            <PublicRoute exact path="/valid" component={Form} />
+            {/*<PublicRoute exact path="/valid" component={Form} />*/}
             <PublicRoute exact path="/register" component={Register} />
             <PublicRoute exact path="/login" component={Login} />
             <PrivateRoute exact path="/usersonly" component={UsersOnly} />
