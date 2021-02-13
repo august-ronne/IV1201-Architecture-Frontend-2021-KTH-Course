@@ -1,0 +1,4 @@
+{
+    "title.loading": "Loading...",
+    "test": "hello world {val}"
+}
