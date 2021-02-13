@@ -11,7 +11,7 @@ export async function setLang(name) {
         current = await (await fetch("lang/" + name + ".json")).json();
     }
     catch(e) {
-        console.error(e);
+        console.error("Translation error: ", e);
         current = {};
     }
 }
@@ -21,7 +21,6 @@ export function T(key, values = {}) {
     if(r == null)
         return key;
     for(let v in values) {
-        console.log(v)
         r = r.replaceAll("{"+v+"}", values[v]);
     }
     return r;
