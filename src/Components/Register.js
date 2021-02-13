@@ -78,7 +78,7 @@ const Register = (props) => {
                     value={user.email}
                     onChange={onChange}
                 />
-
+                <br />
                 <label htmlFor="username">Username:</label>
                 <input
                     type="text"
