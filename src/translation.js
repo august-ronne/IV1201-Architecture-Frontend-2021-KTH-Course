@@ -20,9 +20,8 @@ export function T(key, values = {}) {
     let r = current[key];
     if(r == null)
         return key;
-    for(let v in values) {
+    for(let v in values)
         r = r.replaceAll("{"+v+"}", values[v]);
-    }
     return r;
 }
 
