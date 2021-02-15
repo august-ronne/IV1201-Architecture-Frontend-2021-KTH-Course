@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../Services/AuthService";
 import Message from "../Components/Message";
+import T from "../translation";
 
 const Register = (props) => {
     const [user, setUser] = useState({
@@ -50,54 +51,54 @@ const Register = (props) => {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <h3>Please register an account</h3>
+                <h3>{T("title.register")}</h3>
 
-                <label htmlFor="firstName">First Name:</label>
+                <label htmlFor="firstName">{T("label.firstName")}</label>
                 <input
                     type="text"
                     name="firstName"
-                    placeholder="Enter first name..."
+                    placeholder={T("placeholder.firstName")}
                     value={user.firstName}
                     onChange={onChange}
                 />
-
-                <label htmlFor="lastName">Last Name:</label>
+                <br/>
+                <label htmlFor="lastName">{T("label.lastName")}</label>
                 <input
                     type="text"
                     name="lastName"
-                    placeholder="Enter last name..."
+                    placeholder={T("placeholder.lastName")}
                     value={user.lastName}
                     onChange={onChange}
                 />
-
-                <label htmlFor="email">Email:</label>
+                <br/>
+                <label htmlFor="email">{T("label.email")}</label>
                 <input
                     type="text"
                     name="email"
-                    placeholder="Enter email..."
+                    placeholder={T("placeholder.email")}
                     value={user.email}
                     onChange={onChange}
                 />
-                <br />
-                <label htmlFor="username">Username:</label>
+                <br/>
+                <label htmlFor="username">{T("label.username")}</label>
                 <input
                     type="text"
                     name="username"
-                    placeholder="Enter username..."
+                    placeholder={T("placeholder.username")}
                     value={user.username}
                     onChange={onChange}
                 />
-
-                <label htmlFor="password">Password:</label>
+                <br/>
+                <label htmlFor="password">{T("label.password")}</label>
                 <input
                     type="text"
                     name="password"
-                    placeholder="Enter password..."
+                    placeholder={T("placeholder.password")}
                     value={user.password}
                     onChange={onChange}
                 />
-
-                <button type="submit">Register Account</button>
+                <br/>
+                <button type="submit">{T("button.register")}</button>
             </form>
             {serverMessage ? <Message message={serverMessage} /> : null}
         </div>
