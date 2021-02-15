@@ -64,7 +64,7 @@ const Register = (props) => {
                 />
                 <br />
                 {errors.lastName ? (
-                    <Message message={errors.firstName.message} />
+                    <Message message={errors.lastName.message} />
                 ) : null}
 
                 <label htmlFor="email">{T("label.email")}</label>
@@ -76,7 +76,7 @@ const Register = (props) => {
                 />
                 <br />
                 {errors.email ? (
-                    <Message message={errors.firstName.message} />
+                    <Message message={errors.email.message} />
                 ) : null}
 
                 <label htmlFor="username">{T("label.username")}</label>
