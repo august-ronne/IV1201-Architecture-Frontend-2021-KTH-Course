@@ -4,8 +4,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
-import Message from "./Message";
+import Message from "../Components/Message";
 import LoginSchema from "../Models/LoginFormModel";
+import T from "../translation";
 
 const Login = (props) => {
     const [userMessage, setUserMessage] = useState(null);
@@ -41,27 +42,40 @@ const Login = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit(submitLoginForm)}>
+                <h3>{T("title.signin")}</h3>
+                <label htmlFor="email" className="sr-only">
+                    {T("label.email")}
+                </label>
                 <input
                     type="text"
                     name="email"
-                    placeholder="Email..."
+                    placeholder={T("placeholder.email")}
                     ref={register}
                 />
                 {errors.email ? (
                     <Message message={errors.email.message} />
                 ) : null}
                 <br />
+
+                <label htmlFor="password" className="sr-only">
+                    {T("label.password")}
+                </label>
                 <input
                     type="text"
                     name="password"
-                    placeholder="Password..."
+                    placeholder={T("placeholder.password")}
                     ref={register}
                 />
                 {errors.password ? (
                     <Message message={errors.password.message} />
                 ) : null}
                 <br />
-                <button type="submit">Log In</button>
+                
+                <button
+                    type="submit"
+                >
+                    {T("button.login")}
+                </button>
                 <br />
                 {userMessage ? <Message message={userMessage} /> : null}
             </form>

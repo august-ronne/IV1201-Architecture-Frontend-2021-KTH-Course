@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import AuthService from "../Services/AuthService";
+import T from "../translation";
 
 /* 
     AuthContext object gives us <Provider> and <Consumer> 
@@ -26,7 +27,7 @@ function AuthProvider({ children }) {
     return (
         <div>
             {!isLoaded ? (
-                <h1>Loading</h1>
+                <h1>{T("title.loading")}</h1>
             ) : (
                 <AuthContext.Provider
                     value={{

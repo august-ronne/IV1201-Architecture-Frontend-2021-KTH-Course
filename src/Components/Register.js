@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import AuthService from "../Services/AuthService";
-import Message from "./Message";
+import Message from "../Components/Message";
 import RegisterSchema from "../Models/RegisterFormModel";
+import T from "../translation";
 
 const Register = (props) => {
     const [userMessage, setUserMessage] = useState(null);
@@ -40,68 +41,82 @@ const Register = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit(submitRegisterForm)}>
+                <h3>{T("title.register")}</h3>
+
+                <label htmlFor="firstName">{T("label.firstName")}</label>
                 <input
                     type="text"
                     name="firstName"
-                    placeholder="First Name..."
+                    placeholder={T("placeholder.firstName")}
                     ref={register}
                 />
+                <br />
                 {errors.firstName ? (
                     <Message message={errors.firstName.message} />
                 ) : null}
-                <br />
+
+                <label htmlFor="lastName">{T("label.lastName")}</label>
                 <input
                     type="text"
                     name="lastName"
-                    placeholder="Last Name..."
+                    placeholder={T("placeholder.lastName")}
                     ref={register}
                 />
-                {errors.lastName ? (
-                    <Message message={errors.lastName.message} />
-                ) : null}
                 <br />
+                {errors.lastName ? (
+                    <Message message={errors.firstName.message} />
+                ) : null}
+
+                <label htmlFor="email">{T("label.email")}</label>
                 <input
                     type="text"
                     name="email"
-                    placeholder="Email..."
+                    placeholder={T("placeholder.email")}
                     ref={register}
                 />
-                {errors.email ? (
-                    <Message message={errors.email.message} />
-                ) : null}
                 <br />
+                {errors.email ? (
+                    <Message message={errors.firstName.message} />
+                ) : null}
+
+                <label htmlFor="username">{T("label.username")}</label>
                 <input
                     type="text"
                     name="username"
-                    placeholder="Username..."
+                    placeholder={T("placeholder.username")}
                     ref={register}
                 />
+                <br />
                 {errors.username ? (
                     <Message message={errors.username.message} />
                 ) : null}
-                <br />
+
+                <label htmlFor="password">{T("label.password")}</label>
                 <input
                     type="text"
                     name="password"
-                    placeholder="Password..."
+                    placeholder={T("placeholder.password")}
                     ref={register}
                 />
+                <br />
                 {errors.password ? (
                     <Message message={errors.password.message} />
                 ) : null}
-                <br />
+
+                <label htmlFor="confirmPassword">{T("label.password")}</label>
                 <input
                     type="text"
-                    name="confirmPassword"
-                    placeholder="Confirm password..."
+                    name="password"
+                    placeholder={T("placeholder.password")}
                     ref={register}
                 />
+                <br />
                 {errors.confirmPassword ? (
-                    <Message message="Passwords must match" />
+                    <Message message={errors.confirmPassword.message} />
                 ) : null}
-                <br />
-                <button type="submit">Register Account</button>
-                <br />
+
+                <button type="submit">{T("button.register")}</button>
+                <br/>
                 {userMessage ? <Message message={userMessage} /> : null}
             </form>
         </div>
