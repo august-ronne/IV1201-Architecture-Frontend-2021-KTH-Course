@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
 import Message from "../Components/Message";
+import T from "../translation";
 
 const Login = (props) => {
     const [user, setUser] = useState({ email: "", password: "" });
@@ -28,29 +29,29 @@ const Login = (props) => {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <h3>Please sign in</h3>
+                <h3>{T("title.signin")}</h3>
                 <label htmlFor="email" className="sr-only">
-                    Email:
+                    {T("label.email")}
                 </label>
                 <input
                     type="text"
                     name="email"
                     onChange={onChange}
-                    placeholder="Enter email"
+                    placeholder={T("placeholder.email")}
                 />
                 <label htmlFor="password" className="sr-only">
-                    Password
+                    {T("label.password")}
                 </label>
                 <input
                     type="password"
                     name="password"
                     onChange={onChange}
-                    placeholder="Enter password"
+                    placeholder={T("placeholder.password")}
                 />
                 <button
                     type="submit"
                 >
-                    Log In
+                    {T("button.login")}
                 </button>
             </form>
             {serverMessage ? <Message message={serverMessage} /> : null }

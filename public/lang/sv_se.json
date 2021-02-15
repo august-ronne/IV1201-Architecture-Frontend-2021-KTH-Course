@@ -1,4 +1,32 @@
 {
+    "nav.home": "Hem",
+    "nav.login": "Logga in",
+    "nav.register": "Registrera",
+    "nav.usersonly": "Hämlig sida",
+
     "title.loading": "Laddar...",
-    "test": "hello world {val}"
+    "title.homePage": "Landnings sida",
+    "title.signin": "Var god att logga in",
+    "title.register": "Var god att registrera dig",
+    "title.usersonly": "Hämlig sida bara användare kan se!",
+
+    "label.email": "Email:",
+    "label.password": "Lösenord:",
+    "label.username": "Användarnamn:",
+    "label.firstName": "Förnamn:",
+    "label.lastName": "Efternamn:",
+
+    "placeholder.email": "Ange email...",
+    "placeholder.password": "Ange lösenord...",
+    "placeholder.username": "Ange användarnamn...",
+    "placeholder.firstName": "Ange förnamn...",
+    "placeholder.lastName": "Ange efternamn...",
+
+    "button.login": "Logga in",
+    "button.logout": "Logga ut",
+    "button.register": "Registrera konto",
+
+    "text.usersonly": "Bara inloggade användare kan se denna sida.",
+
+    "test": "hej värld {val}"
 }

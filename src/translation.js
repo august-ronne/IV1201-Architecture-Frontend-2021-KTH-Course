@@ -26,3 +26,5 @@ export function T(key, values = {}) {
 }
 
 export default T;
+
+export const LANG_LIST = ['en_us', 'sv_se'];
