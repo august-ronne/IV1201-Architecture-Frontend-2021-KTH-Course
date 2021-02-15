@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./Styles/App.css";
 
 import { Home, Register, Login, Navbar, UsersOnly } from "./Components/index";
 import { PrivateRoute, PublicRoute } from "./HoCs/index";
