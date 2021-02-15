@@ -10,13 +10,17 @@ const AuthService = {
                 "Content-Type": "application/json",
             },
         }).then((res) => {
-            if (res.status !== 401 && res.satus !== 400)
-                return res.json().then((data) => data);
-            else
-                return {
-                    isAuthenticated: false,
-                    user: { uid: "", firstName: "", email: "" },
-                };
+            if (res.status === 500) {
+                res.json().then(({ serverMessage }) => {
+                    return {
+                        isAuthenticated: false,
+                        user: { uid: "", firstName: "", email: "" },
+                        ...serverMessage,
+                    };
+                });
+            } else {
+                return res.json().then(({ serverMessage }) => serverMessage);
+            }
         });
     },
     register: (user) => {
@@ -28,22 +32,25 @@ const AuthService = {
             },
         })
             .then((res) => res.json())
-            .then((data) => data);
+            .then(({serverMessage}) => serverMessage);
     },
     logout: () => {
         return fetch(`${serverURL}/auth/logout`)
             .then((res) => res.json())
-            .then((data) => data);
+            .then(({serverMessage}) => serverMessage);
     },
     isAuthenticated: () => {
-        return fetch(`${serverURL}/auth/authenticated`).then((res) => {
-            if (res.status !== 401 && res.status !== 400) {
-                return res.json().then((data) => data);
+        return fetch(`${serverURL}/auth/userstatus`).then((res) => {
+            if (res.status === 500) {
+                res.json().then(({ serverMessage }) => {
+                    return {
+                        isAuthenticated: false,
+                        user: { uid: "", firstName: "", email: "" },
+                        ...serverMessage,
+                    };
+                });
             } else {
-                return {
-                    isAuthenticated: false,
-                    user: { uid: "", firstName: "", email: "" },
-                };
+                return res.json().then(({ serverMessage }) => serverMessage);
             }
         });
     },

@@ -15,10 +15,10 @@ function AuthProvider({ children }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        AuthService.isAuthenticated().then((data) => {
-            console.log(data);
-            setUser(data.user);
-            setIsAuthenticated(data.isAuthenticated);
+        AuthService.isAuthenticated().then((serverMessage) => {
+            console.log(serverMessage);
+            setUser(serverMessage.user);
+            setIsAuthenticated(serverMessage.isAuthenticated);
             setIsLoaded(true);
         });
     }, []);
