@@ -54,6 +54,7 @@ const Register = (props) => {
 
                 <label htmlFor="firstName">First Name:</label>
                 <input
+                    id="firstName"
                     type="text"
                     name="firstName"
                     placeholder="Enter first name..."
@@ -63,6 +64,7 @@ const Register = (props) => {
 
                 <label htmlFor="lastName">Last Name:</label>
                 <input
+                    id="lastName"
                     type="text"
                     name="lastName"
                     placeholder="Enter last name..."
@@ -72,6 +74,7 @@ const Register = (props) => {
 
                 <label htmlFor="email">Email:</label>
                 <input
+                    id="email"
                     type="text"
                     name="email"
                     placeholder="Enter email..."
@@ -81,6 +84,7 @@ const Register = (props) => {
 
                 <label htmlFor="username">Username:</label>
                 <input
+                    id="username"
                     type="text"
                     name="username"
                     placeholder="Enter username..."
@@ -90,6 +94,7 @@ const Register = (props) => {
 
                 <label htmlFor="password">Password:</label>
                 <input
+                    id="password"
                     type="text"
                     name="password"
                     placeholder="Enter password..."

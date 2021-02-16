@@ -33,6 +33,7 @@ const Login = (props) => {
                     Email:
                 </label>
                 <input
+                    id="email"
                     type="text"
                     name="email"
                     onChange={onChange}
@@ -42,6 +43,7 @@ const Login = (props) => {
                     Password
                 </label>
                 <input
+                    id="password"
                     type="password"
                     name="password"
                     onChange={onChange}

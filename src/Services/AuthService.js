@@ -1,4 +1,5 @@
-const serverURL = process.env.REACT_APP_SERVER_URL;
+// const serverURL = process.env.REACT_APP_SERVER_URL;
+const serverURL = ""
 
 const AuthService = {
     login: (user) => {
@@ -47,4 +48,5 @@ const AuthService = {
         });
     },
 };
+
 export default AuthService;
