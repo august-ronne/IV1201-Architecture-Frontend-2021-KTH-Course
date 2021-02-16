@@ -1,0 +1,32 @@
+{
+    "nav.home": "Home",
+    "nav.login": "Login",
+    "nav.register": "Register",
+    "nav.usersonly": "Secret page",
+
+    "title.loading": "Loading...",
+    "title.homePage": "Home Page",
+    "title.signin": "Please sign in",
+    "title.register": "Please register an account",
+    "title.usersonly": "Secret page for logged in users!",
+
+    "label.email": "Email:",
+    "label.password": "Password:",
+    "label.username": "Username:",
+    "label.firstName": "First Name:",
+    "label.lastName": "Last Name:",
+
+    "placeholder.email": "Enter email...",
+    "placeholder.password": "Enter password...",
+    "placeholder.username": "Enter username...",
+    "placeholder.firstName": "Enter first name...",
+    "placeholder.lastName": "Enter last name...",
+
+    "button.login": "Log in",
+    "button.logout": "Log out",
+    "button.register": "Register Account",
+
+    "text.usersonly": "Only authenticated users can view this page.",
+
+    "test": "hello world {val}"
+}

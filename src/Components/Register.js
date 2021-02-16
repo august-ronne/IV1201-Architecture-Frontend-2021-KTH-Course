@@ -1,16 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import AuthService from "../Services/AuthService";
 import Message from "../Components/Message";
+import RegisterSchema from "../Models/RegisterFormModel";
+import T from "../translation";
 
 const Register = (props) => {
-    const [user, setUser] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        username: "",
-        password: "",
-    });
-    const [serverMessage, setServerMessage] = useState(null);
+    const [userMessage, setUserMessage] = useState(null);
     let timerID = useRef(null);
 
     useEffect(() => {
@@ -19,92 +17,113 @@ const Register = (props) => {
         };
     }, []);
 
-    const onChange = (event) => {
-        setUser({ ...user, [event.target.name]: event.target.value });
-    };
-    const resetForm = () => {
-        setUser({
-            firstName: "",
-            lastName: "",
-            email: "",
-            username: "",
-            password: "",
-        });
-    };
-    const onSubmit = (event) => {
-        event.preventDefault();
-        AuthService.register(user).then((data) => {
-            console.log(data);
-            const { serverMessage } = data;
-            console.log(serverMessage);
-            setServerMessage(serverMessage);
-            console.log(serverMessage);
-            resetForm();
+    const { register, handleSubmit, errors, reset } = useForm({
+        resolver: yupResolver(RegisterSchema),
+    });
+
+    const submitRegisterForm = (userData) => {
+        AuthService.register(userData).then((serverMessage) => {
             if (!serverMessage.isError) {
+                reset();
+                setUserMessage(
+                    serverMessage.msgBody +
+                        ", you will soon be redirected to the login page"
+                );
                 timerID = setTimeout(() => {
                     props.history.push("/login");
                 }, 2000);
+            } else {
+                setUserMessage(serverMessage.msgBody);
             }
         });
     };
+
     return (
         <div>
-            <form onSubmit={onSubmit}>
-                <h3>Please register an account</h3>
+            <form onSubmit={handleSubmit(submitRegisterForm)}>
+                <h3>{T("title.register")}</h3>
 
-                <label htmlFor="firstName">First Name:</label>
+                <label htmlFor="firstName">{T("label.firstName")}</label>
                 <input
                     id="firstName"
                     type="text"
                     name="firstName"
-                    placeholder="Enter first name..."
-                    value={user.firstName}
-                    onChange={onChange}
+                    placeholder={T("placeholder.firstName")}
+                    ref={register}
                 />
+                <br />
+                {errors.firstName ? (
+                    <Message message={errors.firstName.message} />
+                ) : null}
 
-                <label htmlFor="lastName">Last Name:</label>
+                <label htmlFor="lastName">{T("label.lastName")}</label>
                 <input
                     id="lastName"
                     type="text"
                     name="lastName"
-                    placeholder="Enter last name..."
-                    value={user.lastName}
-                    onChange={onChange}
+                    placeholder={T("placeholder.lastName")}
+                    ref={register}
                 />
+                <br />
+                {errors.lastName ? (
+                    <Message message={errors.lastName.message} />
+                ) : null}
 
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">{T("label.email")}</label>
                 <input
                     id="email"
                     type="text"
                     name="email"
-                    placeholder="Enter email..."
-                    value={user.email}
-                    onChange={onChange}
+                    placeholder={T("placeholder.email")}
+                    ref={register}
                 />
+                <br />
+                {errors.email ? (
+                    <Message message={errors.email.message} />
+                ) : null}
 
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">{T("label.username")}</label>
                 <input
                     id="username"
                     type="text"
                     name="username"
-                    placeholder="Enter username..."
-                    value={user.username}
-                    onChange={onChange}
+                    placeholder={T("placeholder.username")}
+                    ref={register}
                 />
+                <br />
+                {errors.username ? (
+                    <Message message={errors.username.message} />
+                ) : null}
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">{T("label.password")}</label>
+                <input
+                    type="text"
+                    name="password"
+                    placeholder={T("placeholder.password")}
+                    ref={register}
+                />
+                <br />
+                {errors.password ? (
+                    <Message message={errors.password.message} />
+                ) : null}
+
+                <label htmlFor="confirmPassword">{T("label.password")}</label>
                 <input
                     id="password"
                     type="text"
                     name="password"
-                    placeholder="Enter password..."
-                    value={user.password}
-                    onChange={onChange}
+                    placeholder={T("placeholder.password")}
+                    ref={register}
                 />
+                <br />
+                {errors.confirmPassword ? (
+                    <Message message={errors.confirmPassword.message} />
+                ) : null}
 
-                <button type="submit">Register Account</button>
+                <button type="submit">{T("button.register")}</button>
+                <br/>
+                {userMessage ? <Message message={userMessage} /> : null}
             </form>
-            {serverMessage ? <Message message={serverMessage} /> : null}
         </div>
     );
 };

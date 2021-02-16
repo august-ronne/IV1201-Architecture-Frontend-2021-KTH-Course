@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
+import {T, LANG_LIST} from "../translation";
 
 
 // testing
@@ -13,25 +14,35 @@ const Navbar = (props) => {
     );
 
     const onClickLogoutHandler = () => {
-        AuthService.logout().then((data) => {
-            if (data.serverMessage.accepted) {
-                setUser(data.user);
+        AuthService.logout().then((serverMessage) => {
+            if (!serverMessage.isError) {
+                setUser(serverMessage.user);
                 setIsAuthenticated(false);
             }
         });
     };
 
+    const languageSelect = () => {
+        return LANG_LIST.map((e, i) => {
+            return (
+            <a href={"?lang="+e}>
+                <li key={i}>{e}</li>
+            </a>
+            )
+        })
+    }
+
     const unauthenticatedNavbar = () => {
         return (
             <>
                 <Link to="/">
-                    <li>Home</li>
+                    <li>{T("nav.home")}</li>
                 </Link>
                 <Link to="/login">
-                    <li>Login</li>
+                    <li>{T("nav.login")}</li>
                 </Link>
                 <Link to="/register">
-                    <li>Register</li>
+                    <li>{T("nav.register")}</li>
                 </Link>
             </>
         );
@@ -41,16 +52,16 @@ const Navbar = (props) => {
         return (
             <>
                 <Link to="/">
-                    <li>Home</li>
+                    <li>{T("nav.home")}</li>
                 </Link>
                 <Link to="/usersonly">
-                    <li>Secret page for logged in users!</li>
+                    <li>{T("nav.usersonly")}</li>
                 </Link>
                 <button
                     type="button"
                     onClick={onClickLogoutHandler}
                 >
-                    Logout
+                    {T("button.logout")}
                 </button>
             </>
         );
@@ -60,7 +71,7 @@ const Navbar = (props) => {
         <nav>
             <div>
                 <Link to="/">
-                    <div>Home page</div>
+                    <div>{T("title.homePage")}</div>
                 </Link>
                 <div>
                     <ul>
@@ -70,6 +81,7 @@ const Navbar = (props) => {
                     </ul>
                 </div>
             </div>
+            <ul>{languageSelect()}</ul>
         </nav>
     );
 };
