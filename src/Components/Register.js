@@ -45,6 +45,7 @@ const Register = (props) => {
 
                 <label htmlFor="firstName">{T("label.firstName")}</label>
                 <input
+                    id="firstName"
                     type="text"
                     name="firstName"
                     placeholder={T("placeholder.firstName")}
@@ -57,6 +58,7 @@ const Register = (props) => {
 
                 <label htmlFor="lastName">{T("label.lastName")}</label>
                 <input
+                    id="lastName"
                     type="text"
                     name="lastName"
                     placeholder={T("placeholder.lastName")}
@@ -69,6 +71,7 @@ const Register = (props) => {
 
                 <label htmlFor="email">{T("label.email")}</label>
                 <input
+                    id="email"
                     type="text"
                     name="email"
                     placeholder={T("placeholder.email")}
@@ -81,6 +84,7 @@ const Register = (props) => {
 
                 <label htmlFor="username">{T("label.username")}</label>
                 <input
+                    id="username"
                     type="text"
                     name="username"
                     placeholder={T("placeholder.username")}
@@ -105,6 +109,7 @@ const Register = (props) => {
 
                 <label htmlFor="confirmPassword">{T("label.password")}</label>
                 <input
+                    id="password"
                     type="text"
                     name="password"
                     placeholder={T("placeholder.password")}

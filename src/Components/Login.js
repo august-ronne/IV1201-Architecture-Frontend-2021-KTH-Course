@@ -47,6 +47,7 @@ const Login = (props) => {
                     {T("label.email")}
                 </label>
                 <input
+                    id="email"
                     type="text"
                     name="email"
                     placeholder={T("placeholder.email")}
@@ -61,6 +62,7 @@ const Login = (props) => {
                     {T("label.password")}
                 </label>
                 <input
+                    id="password"
                     type="text"
                     name="password"
                     placeholder={T("placeholder.password")}
