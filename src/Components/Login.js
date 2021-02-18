@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Formik, Form, Field } from "formik";
 
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
-import Message from "../Components/Message";
+import Message from "./Message";
 import LoginSchema from "../Models/LoginFormModel";
 import T from "../translation";
 
@@ -19,11 +18,8 @@ const Login = (props) => {
         };
     }, []);
 
-    const { register, handleSubmit, errors, reset } = useForm({
-        resolver: yupResolver(LoginSchema),
-    });
-
-    const submitLoginForm = (userData) => {
+    const handleSubmit = (userData) => {
+        console.log(userData);
         AuthService.login(userData).then((serverMessage) => {
             console.log(serverMessage);
             const { isAuthenticated, user, msgBody } = serverMessage;
@@ -33,54 +29,43 @@ const Login = (props) => {
                     authContext.setUser(user);
                     authContext.setIsAuthenticated(isAuthenticated);
                 }, 2000);
-            } else {
-                reset();
             }
         });
     };
-
     return (
         <div>
-            <form onSubmit={handleSubmit(submitLoginForm)}>
-                <h3>{T("title.signin")}</h3>
-                <label htmlFor="email" className="sr-only">
-                    {T("label.email")}
-                </label>
-                <input
-                    id="email"
-                    type="text"
-                    name="email"
-                    placeholder={T("placeholder.email")}
-                    ref={register}
-                />
-                {errors.email ? (
-                    <Message message={errors.email.message} />
-                ) : null}
-                <br />
+            <h3>{T("title.login")}</h3>
+            <Formik
+                initialValues={{
+                    email: "",
+                    password: "",
+                }}
+                validationSchema={LoginSchema}
+                onSubmit={handleSubmit}
+            >
+                {({ errors, touched }) => (
+                    <Form>
+                        <label htmlFor="email">{T("label.email")}</label>
+                        <Field name="email" placeholder="Enter email address" />
+                        {errors.email && touched.email ? (
+                            <div>{errors.email}</div>
+                        ) : null}
 
-                <label htmlFor="password" className="sr-only">
-                    {T("label.password")}
-                </label>
-                <input
-                    id="password"
-                    type="text"
-                    name="password"
-                    placeholder={T("placeholder.password")}
-                    ref={register}
-                />
-                {errors.password ? (
-                    <Message message={errors.password.message} />
-                ) : null}
-                <br />
-                
-                <button
-                    type="submit"
-                >
-                    {T("button.login")}
-                </button>
-                <br />
-                {userMessage ? <Message message={userMessage} /> : null}
-            </form>
+                        <label htmlFor="password">{T("label.password")}</label>
+                        <Field
+                            name="password"
+                            type="password"
+                            placeholder="Enter password"
+                        />
+                        {errors.password && touched.password ? (
+                            <div>{errors.password}</div>
+                        ) : null}
+
+                        <button type="submit">Submit</button>
+                        {userMessage ? <Message message={userMessage} /> : null}
+                    </Form>
+                )}
+            </Formik>
         </div>
     );
 };
