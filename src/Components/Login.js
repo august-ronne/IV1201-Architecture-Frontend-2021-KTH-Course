@@ -23,12 +23,14 @@ const Login = (props) => {
         AuthService.login(userData).then((serverMessage) => {
             console.log(serverMessage);
             const { isAuthenticated, user, msgBody } = serverMessage;
-            setUserMessage(msgBody + ", you will soon be redirected");
             if (isAuthenticated) {
+                setUserMessage(msgBody + ", you will soon be redirected");
                 timerID = setTimeout(() => {
                     authContext.setUser(user);
                     authContext.setIsAuthenticated(isAuthenticated);
                 }, 2000);
+            } else {
+                setUserMessage(msgBody);
             }
         });
     };
