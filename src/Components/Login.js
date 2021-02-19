@@ -36,7 +36,7 @@ const Login = (props) => {
     };
     return (
         <div>
-            <h3>{T("title.login")}</h3>
+            <h3>{T("title.signin")}</h3>
             <Formik
                 initialValues={{
                     email: "",
@@ -48,19 +48,19 @@ const Login = (props) => {
                 {({ errors, touched }) => (
                     <Form>
                         <label htmlFor="email">{T("label.email")}</label>
-                        <Field name="email" placeholder="Enter email address" />
+                        <Field name="email" placeholder={T("placeholder.email")} />
                         {errors.email && touched.email ? (
-                            <div>{errors.email}</div>
+                            <Message message={errors.email} />
                         ) : null}
 
                         <label htmlFor="password">{T("label.password")}</label>
                         <Field
                             name="password"
                             type="password"
-                            placeholder="Enter password"
+                            placeholder={T("placeholder.password")}
                         />
                         {errors.password && touched.password ? (
-                            <div>{errors.password}</div>
+                            <Message message={errors.password} />
                         ) : null}
 
                         <button type="submit">Submit</button>

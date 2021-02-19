@@ -54,38 +54,47 @@ const Register = (props) => {
                         </label>
                         <Field
                             name="firstName"
-                            placeholder="Enter first name"
+                            placeholder={T("placeholder.firstName")}
                         />
                         {errors.firstName && touched.firstName ? (
-                            <div>{errors.firstName}</div>
+                            <Message message={errors.firstName} />
                         ) : null}
 
                         <label htmlFor="lastName">{T("label.lastName")}</label>
-                        <Field name="lastName" placeholder="Enter last name" />
+                        <Field
+                            name="lastName"
+                            placeholder={T("placeholder.lastName")}
+                        />
                         {errors.lastName && touched.lastName ? (
-                            <div>{errors.lastName}</div>
+                            <Message message={errors.lastName} />
                         ) : null}
 
                         <label htmlFor="email">{T("label.email")}</label>
-                        <Field name="email" placeholder="Enter email address" />
+                        <Field
+                            name="email"
+                            placeholder={T("placeholder.email")}
+                        />
                         {errors.email && touched.email ? (
-                            <div>{errors.email}</div>
+                            <Message message={errors.email} />
                         ) : null}
 
                         <label htmlFor="username">{T("label.username")}</label>
-                        <Field name="username" placeholder="Enter a username" />
+                        <Field
+                            name="username"
+                            placeholder={T("placeholder.username")}
+                        />
                         {errors.username && touched.username ? (
-                            <div>{errors.username}</div>
+                            <Message message={errors.username} />
                         ) : null}
 
                         <label htmlFor="password">{T("label.password")}</label>
                         <Field
                             name="password"
                             type="password"
-                            placeholder="Enter password"
+                            placeholder={T("placeholder.password")}
                         />
                         {errors.password && touched.password ? (
-                            <div>{errors.password}</div>
+                            <Message message={errors.password} />
                         ) : null}
 
                         <label htmlFor="confirmPassword">
@@ -94,10 +103,10 @@ const Register = (props) => {
                         <Field
                             name="confirmPassword"
                             type="password"
-                            placeholder="Confirm password"
+                            placeholder={T("placeholder.password")}
                         />
                         {errors.confirmPassword && touched.confirmPassword ? (
-                            <div>{errors.confirmPassword}</div>
+                            <Message message={errors.confirmPassword} />
                         ) : null}
 
                         <button type="submit">Submit</button>
