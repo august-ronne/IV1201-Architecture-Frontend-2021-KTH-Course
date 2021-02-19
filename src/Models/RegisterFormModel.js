@@ -33,7 +33,12 @@ const RegisterSchema = yup.object().shape({
         .min(6)
         .max(1024)
         .required("You must enter a password"),
-    confirmPassword: yup.string().oneOf([yup.ref("password"), null]),
+    confirmPassword: yup
+        .string()
+        .oneOf(
+            [yup.ref("password"), null],
+            "Password confirmation is not the same as the first password you entered"
+        ),
 });
 
 export default RegisterSchema;
