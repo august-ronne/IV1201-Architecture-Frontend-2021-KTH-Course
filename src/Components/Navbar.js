@@ -9,7 +9,7 @@ import {T, LANG_LIST} from "../translation";
 
 
 const Navbar = (props) => {
-    const { user, setUser, isAuthenticated, setIsAuthenticated } = useContext(
+    const { user, setUser, isAuthenticated, setIsAuthenticated, role, setRole } = useContext(
         AuthContext
     );
 
@@ -18,6 +18,7 @@ const Navbar = (props) => {
             if (!serverMessage.isError) {
                 setUser(serverMessage.user);
                 setIsAuthenticated(false);
+                setRole("")
             }
         });
     };
@@ -67,6 +68,16 @@ const Navbar = (props) => {
         );
     };
 
+    const authorizedNavbar = () => {
+        return (
+            <>
+                <Link to="/admin">
+                    <li>Admin</li>
+                </Link>
+            </>
+        )
+    }
+
     return (
         <nav>
             <div>
@@ -78,6 +89,9 @@ const Navbar = (props) => {
                         {!isAuthenticated
                             ? unauthenticatedNavbar()
                             : authenticatedNavbar()}
+                        {(role === "recruiter")?
+                            authorizedNavbar()
+                            : null}
                     </ul>
                 </div>
             </div>

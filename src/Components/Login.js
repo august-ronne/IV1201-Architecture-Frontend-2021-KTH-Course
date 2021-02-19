@@ -28,6 +28,7 @@ const Login = (props) => {
                 timerID = setTimeout(() => {
                     authContext.setUser(user);
                     authContext.setIsAuthenticated(isAuthenticated);
+                    authContext.setRole(user.role)
                 }, 2000);
             } else {
                 setUserMessage(msgBody);

@@ -14,6 +14,7 @@ function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [role, setRole] = useState("");
 
     useEffect(() => {
         AuthService.isAuthenticated().then((serverMessage) => {
@@ -21,6 +22,7 @@ function AuthProvider({ children }) {
             setUser(serverMessage.user);
             setIsAuthenticated(serverMessage.isAuthenticated);
             setIsLoaded(true);
+            setRole(serverMessage.user.role)
         });
     }, []);
 
@@ -35,6 +37,8 @@ function AuthProvider({ children }) {
                         setUser,
                         isAuthenticated,
                         setIsAuthenticated,
+                        role,
+                        setRole
                     }}
                 >
                     {children}
