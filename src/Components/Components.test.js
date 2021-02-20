@@ -10,7 +10,14 @@ import "../setupTests"
 import { act } from 'react-dom/test-utils';
 import { MemoryRouter, BrowserRouter } from 'react-router-dom'
 import AuthProvider from "../Context/AuthContext";
+import {T, initLang} from "../translation";
 import {render, cleanup, getByTestId, getByText, screen, fireEvent, getByPlaceholderText} from '@testing-library/react'
+
+beforeAll(async () => {
+    await initLang();
+})
+
+
 
 describe("<Home/>", () => {
     it("renders correctly", () => {
@@ -19,7 +26,7 @@ describe("<Home/>", () => {
 
     it ("renders header", () => {
         let wrapper = shallow(<Home/>);
-        const header = <h1>Home Page</h1>
+        const header = <h1>{T("title.homePage")}</h1>
         expect(wrapper.contains(header)).toEqual(true)
     })
 })
@@ -31,27 +38,47 @@ describe("<Login>", () => {
 
     it ("renders header", () => {
         let wrapper = shallow(<Login/>)
-        const header = <h3>Please sign in</h3>
+        const header = <h3>{T("title.signin")}</h3>
         expect(wrapper.contains(header)).toEqual(true)
     })
 })
 
 describe("Login functionality", () => {
     it("Should change email correctly onChange", () => {
-        const utils = render(<Login/>)
+        let tree = null
+        let emailInput = null;
+        act(() => {
+            tree = mount(<Login/>)
+            emailInput = tree.find("input[name='email']");
 
-        let input = utils.getByLabelText('Email:')
+            emailInput.simulate('change', {
+                persist: () => {},
+                target: {
+                  name: 'email',
+                  value: 'email@gmail.com'
+                }
+              });
+        })
 
-        fireEvent.change(input, { target: { value: 'email' } })
-        expect(input.value).toBe('email')
+        expect(emailInput.html()).toMatch('email@gmail.com');
     })
     it("Should change password correctly onChange", () => {
-        const utils = render(<Login/>)
+        let tree = null
+        let passwordInput = null;
+        act(() => {
+            tree = mount(<Login/>)
+            passwordInput = tree.find("input[name='password']")
+    
+            passwordInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'password',
+                    value: 'password'
+                }
+            })
+        })
 
-        let input = utils.getByLabelText('Password')
-
-        fireEvent.change(input, { target: { value: 'password' } })
-        expect(input.value).toBe('password')
+        expect(passwordInput.html()).toMatch('password')
     })
 })
 
@@ -72,45 +99,105 @@ describe('Register', () => {
     it ('render correctly', () => {
         render(<Register/>)
     })
-    it("Should change password correctly onChange", () => {
-        const utils = render(<Register/>)
+    it("Should change firstName correctly onChange", () => {
+        let tree = null
+        let firstNameInput = null;
 
-        let input = utils.getByLabelText('First Name:')
+        act(() => {
+            tree = mount(<Register/>)
 
-        fireEvent.change(input, { target: { value: 'first' } })
-        expect(input.value).toBe('first')
+            firstNameInput = tree.find("input[name='firstName']")
+    
+            firstNameInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'firstName',
+                    value: 'firstName'
+                }
+            })
+        })
+
+        expect(firstNameInput.html()).toMatch('firstName')
+    })
+    it("Should change lastName correctly onChange", () => {
+        let tree = null
+        let lastNameInput = null;
+
+        act(() => {
+            tree = mount(<Register/>)
+        
+            lastNameInput = tree.find("input[name='lastName']")
+    
+            lastNameInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'lastName',
+                    value: 'lastName'
+                }
+            })
+        })
+
+        expect(lastNameInput.html()).toMatch('lastName')
+    })
+    it("Should change email correctly onChange", () => {
+        let tree = null
+        let emailInput = null;
+
+        act(() => {
+            tree = mount(<Register/>)
+        
+            emailInput = tree.find("input[name='email']")
+    
+            emailInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'email',
+                    value: 'email'
+                }
+            })
+        })
+
+        expect(emailInput.html()).toMatch('email')
+    })
+    it("Should change username correctly onChange", () => {
+        let tree = null
+        let userInput = null;
+
+        act(() => {
+            tree = mount(<Register/>)
+        
+            userInput = tree.find("input[name='username']")
+    
+            userInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'user',
+                    value: 'user'
+                }
+            })
+        })
+
+        expect(userInput.html()).toMatch('user')
     })
     it("Should change password correctly onChange", () => {
-        const utils = render(<Register/>)
+        let tree = null
+        let passwordInput = null;
 
-        let input = utils.getByLabelText('Last Name:')
+        act(() => {
+            tree = mount(<Register/>)
+        
+            passwordInput = tree.find("input[name='password']")
+    
+            passwordInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'password',
+                    value: 'password'
+                }
+            })
+        })
 
-        fireEvent.change(input, { target: { value: 'last' } })
-        expect(input.value).toBe('last')
-    })
-    it("Should change password correctly onChange", () => {
-        const utils = render(<Register/>)
-
-        let input = utils.getByLabelText('Email:')
-
-        fireEvent.change(input, { target: { value: 'email' } })
-        expect(input.value).toBe('email')
-    })
-    it("Should change password correctly onChange", () => {
-        const utils = render(<Register/>)
-
-        let input = utils.getByLabelText('Username:')
-
-        fireEvent.change(input, { target: { value: 'user' } })
-        expect(input.value).toBe('user')
-    })
-    it("Should change password correctly onChange", () => {
-        const utils = render(<Register/>)
-
-        let input = utils.getByLabelText('Password:')
-
-        fireEvent.change(input, { target: { value: 'password' } })
-        expect(input.value).toBe('password')
+        expect(passwordInput.html()).toMatch('password')
     })
 })
 
@@ -121,7 +208,7 @@ describe("UsersOnly", () => {
 
     it ("renders header", () => {
         let wrapper = shallow(<UsersOnly/>);
-        const header = <h1>Users Only</h1>
+        const header = <h1>{T("title.usersonly")}</h1>
         expect(wrapper.contains(header)).toEqual(true)
     })
 })

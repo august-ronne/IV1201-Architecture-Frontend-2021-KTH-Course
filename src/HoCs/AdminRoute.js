@@ -2,18 +2,17 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-    console.log(rest)
-    const { isAuthenticated } = useContext(AuthContext);
+const AdminRoute = ({ component: Component, ...rest }) => {
+    const { isAuthenticated, role } = useContext(AuthContext);
     return (
         <Route
             {...rest}
             render={(props) => {
-                if (!isAuthenticated) {
+                if (!(role === 'recruiter')) {
                     return (
                         <Redirect
                             to={{
-                                pathname: "/login",
+                                pathname: "/",
                                 state: { from: props.location },
                             }}
                         />
@@ -25,4 +24,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     );
 };
 
-export default PrivateRoute;
+export default AdminRoute;
