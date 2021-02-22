@@ -7,17 +7,28 @@ import Message from "./Message";
 import LoginSchema from "../Models/LoginFormModel";
 import T from "../translation";
 
+/**
+ * Component of Login page.
+ * @param props props sent to the page
+ */
 const Login = (props) => {
     const [userMessage, setUserMessage] = useState(null);
     const authContext = useContext(AuthContext);
     let timerID = useRef(null);
 
+    /**
+     * Hook that is called at the loading of the page.
+     */
     useEffect(() => {
         return () => {
             clearTimeout(timerID);
         };
     }, []);
 
+    /**
+     * Submit function for the login form.
+     * @param userData data that is used as credentials.
+     */
     const handleSubmit = (userData) => {
         console.log(userData);
         AuthService.login(userData).then((serverMessage) => {

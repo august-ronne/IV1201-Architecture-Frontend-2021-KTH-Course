@@ -1,6 +1,9 @@
 import React from "react";
 import T from "../translation";
 
+/**
+ * Component which is only shown if user is authenticated.
+ */
 const UsersOnly = () => {
     return (
         <div>

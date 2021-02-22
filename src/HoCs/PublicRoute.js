@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 
+/**
+ * Route which are shown only to unauthenticated users.
+ */
 const PublicOnlyRoute = ({ component: Component, ...rest }) => {
     const { isAuthenticated } = useContext(AuthContext);
     return (
