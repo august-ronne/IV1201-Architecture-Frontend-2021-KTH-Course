@@ -20,8 +20,7 @@ const Register = (props) => {
         AuthService.register(userData).then((serverMessage) => {
             if (!serverMessage.isError) {
                 setUserMessage(
-                    serverMessage.msgBody +
-                        ", you will soon be redirected to the login page"
+                    T("message.register.redirect", {message: serverMessage.msgBody})
                 );
                 timerID = setTimeout(() => {
                     props.history.push("/login");
@@ -109,7 +108,7 @@ const Register = (props) => {
                             <Message message={errors.confirmPassword} />
                         ) : null}
 
-                        <button type="submit">Submit</button>
+                        <button type="submit">{T("button.submit")}</button>
                         {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}

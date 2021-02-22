@@ -25,8 +25,13 @@
     "button.login": "Logga in",
     "button.logout": "Logga ut",
     "button.register": "Registrera konto",
+    "button.submit": "Skicka",
 
     "text.usersonly": "Bara inloggade användare kan se denna sida.",
+
+    "error.lowercase": "Endast små bokstäver",
+
+    "message.register.redirect":"{message}, du blir snart omdirigerad till login",
 
     "test": "hej värld {val}"
 }

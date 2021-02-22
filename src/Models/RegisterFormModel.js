@@ -3,7 +3,7 @@ import * as yup from "yup";
 const RegisterSchema = yup.object().shape({
     firstName: yup
         .string("Text only")
-        .matches(/^[a-z]*$/, "Only enter lowercase letters")
+        .matches(/^[a-z]*$/, "error.lowercase")// "Only enter lowercase letters"
         .min(2, "Your first name must be at least 2 characters")
         .max(50, "Your last name must be 50 characters or shorter")
         .required("You must enter your first name"),
