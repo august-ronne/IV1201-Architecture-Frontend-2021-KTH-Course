@@ -55,10 +55,11 @@ const Navbar = (props) => {
                 <Link to="/">
                     <li>{T("nav.home")}</li>
                 </Link>
-                <Link to="/usersonly">
-                    <li>{T("nav.usersonly")}</li>
+                <Link  to="/usersonly">
+                    <li id='auth-user'>{T("nav.usersonly")}</li>
                 </Link>
                 <button
+                    id='logout-navbar'
                     type="button"
                     onClick={onClickLogoutHandler}
                 >
@@ -72,7 +73,7 @@ const Navbar = (props) => {
         return (
             <>
                 <Link to="/admin">
-                    <li>Admin</li>
+                    <li id='admin-navbar' >Admin</li>
                 </Link>
             </>
         )
@@ -81,7 +82,7 @@ const Navbar = (props) => {
     return (
         <nav>
             <div>
-                <Link to="/">
+                <Link id='homepage-navbar' to="/">
                     <div>{T("title.homePage")}</div>
                 </Link>
                 <div>

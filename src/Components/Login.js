@@ -49,13 +49,13 @@ const Login = (props) => {
                 {({ errors, touched }) => (
                     <Form>
                         <label htmlFor="email">{T("label.email")}</label>
-                        <Field name="email" placeholder={T("placeholder.email")} />
+                        <Field id='email-login' name="email" placeholder={T("placeholder.email")} />
                         {errors.email && touched.email ? (
                             <Message message={errors.email} />
                         ) : null}
 
                         <label htmlFor="password">{T("label.password")}</label>
-                        <Field
+                        <Field id='password-login'
                             name="password"
                             type="password"
                             placeholder={T("placeholder.password")}
@@ -64,7 +64,7 @@ const Login = (props) => {
                             <Message message={errors.password} />
                         ) : null}
 
-                        <button type="submit">Submit</button>
+                        <button id='button-login' type="submit">Submit</button>
                         {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}

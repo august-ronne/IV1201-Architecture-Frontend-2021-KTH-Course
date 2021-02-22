@@ -20,7 +20,8 @@ const Register = (props) => {
         AuthService.register(userData).then((serverMessage) => {
             if (!serverMessage.isError) {
                 setUserMessage(
-                    T("message.register.redirect", {message: serverMessage.msgBody})
+                    serverMessage.msgBody +
+                        ", you will soon be redirected to the login page"
                 );
                 timerID = setTimeout(() => {
                     props.history.push("/login");
@@ -52,6 +53,7 @@ const Register = (props) => {
                             {T("label.firstName")}
                         </label>
                         <Field
+                            id='fname-register'
                             name="firstName"
                             placeholder={T("placeholder.firstName")}
                         />
@@ -61,6 +63,7 @@ const Register = (props) => {
 
                         <label htmlFor="lastName">{T("label.lastName")}</label>
                         <Field
+                            id='lname-register'
                             name="lastName"
                             placeholder={T("placeholder.lastName")}
                         />
@@ -70,6 +73,7 @@ const Register = (props) => {
 
                         <label htmlFor="email">{T("label.email")}</label>
                         <Field
+                            id='email-register'
                             name="email"
                             placeholder={T("placeholder.email")}
                         />
@@ -79,6 +83,7 @@ const Register = (props) => {
 
                         <label htmlFor="username">{T("label.username")}</label>
                         <Field
+                            id='username-register'
                             name="username"
                             placeholder={T("placeholder.username")}
                         />
@@ -88,6 +93,7 @@ const Register = (props) => {
 
                         <label htmlFor="password">{T("label.password")}</label>
                         <Field
+                            id='password-register'
                             name="password"
                             type="password"
                             placeholder={T("placeholder.password")}
@@ -100,6 +106,7 @@ const Register = (props) => {
                             {T("label.password")}
                         </label>
                         <Field
+                            id='confirm-register'
                             name="confirmPassword"
                             type="password"
                             placeholder={T("placeholder.password")}
@@ -108,7 +115,7 @@ const Register = (props) => {
                             <Message message={errors.confirmPassword} />
                         ) : null}
 
-                        <button type="submit">{T("button.submit")}</button>
+                        <button id='submit-register' type="submit">{T("button.submit")}</button>
                         {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}
