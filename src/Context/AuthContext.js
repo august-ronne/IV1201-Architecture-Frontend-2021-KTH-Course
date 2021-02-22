@@ -2,11 +2,12 @@ import React, { createContext, useState, useEffect } from "react";
 import AuthService from "../Services/AuthService";
 import T from "../translation";
 
-/* 
+/** 
     AuthContext object gives us <Provider> and <Consumer> 
     Anything that is wrapped within a <Provider> will have access
     to the global state. You also have to "consume" the global state
 */
+
 
 export const AuthContext = createContext();
 
@@ -16,6 +17,9 @@ function AuthProvider({ children }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [role, setRole] = useState("");
 
+    /**
+     * Initializes the context with relevant information.
+     */
     useEffect(() => {
         AuthService.isAuthenticated().then((serverMessage) => {
             console.log(serverMessage);

@@ -5,7 +5,10 @@ import { AuthContext } from "../Context/AuthContext";
 import {T, LANG_LIST} from "../translation";
 
 
-// testing
+/**
+ * Navbar component of the client. Always shown on top.
+ * @param props props sent to the component
+ */
 
 
 const Navbar = (props) => {
@@ -13,6 +16,9 @@ const Navbar = (props) => {
         AuthContext
     );
 
+    /**
+     * Method for when the logout button is used.
+     */
     const onClickLogoutHandler = () => {
         AuthService.logout().then((serverMessage) => {
             if (!serverMessage.isError) {
@@ -23,6 +29,9 @@ const Navbar = (props) => {
         });
     };
 
+    /**
+     * Method listing the available languages of the client. 
+     */
     const languageSelect = () => {
         return LANG_LIST.map((e, i) => {
             return (
@@ -33,6 +42,9 @@ const Navbar = (props) => {
         })
     }
 
+    /**
+     * Method showing the navbar when an unauthenticated user is browsing.
+     */
     const unauthenticatedNavbar = () => {
         return (
             <>
@@ -49,6 +61,9 @@ const Navbar = (props) => {
         );
     };
 
+    /**
+     * Method showing the navbar when an authenticated user is browsing.
+     */
     const authenticatedNavbar = () => {
         return (
             <>
@@ -69,6 +84,9 @@ const Navbar = (props) => {
         );
     };
 
+    /**
+     * Method showing additional content for authorized users.
+     */
     const authorizedNavbar = () => {
         return (
             <>

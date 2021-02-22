@@ -1,10 +1,17 @@
 let current = null;
 
+/**
+ * Initializes the language according to the parameters of the url.
+ */
 export async function initLang() {
     let params = new URLSearchParams(window.location.search);
     await setLang(params.get("lang") || "en_us");
 }
 
+/**
+ * Loads the <code>current</code> variable with the relevant strings.
+ * @param name current chosen language for the application
+ */
 export async function setLang(name) {
     current = null;
     try {
@@ -16,6 +23,11 @@ export async function setLang(name) {
     }
 }
 
+/**
+ * Main translation method.
+ * @param {*} key the key for the relevant string in the catalogue of available strings
+ * @param {*} values variables in string text
+ */
 export function T(key, values = {}) {
     let r = current[key];
     if(r == null)

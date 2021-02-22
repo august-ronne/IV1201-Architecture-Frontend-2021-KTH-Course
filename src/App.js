@@ -4,6 +4,9 @@ import "./Styles/App.css";
 import { Home, Register, Login, Navbar, UsersOnly, Admin } from "./Components/index";
 import { PrivateRoute, PublicRoute, AdminRoute } from "./HoCs/index";
 
+/**
+ * Main component of the client, holds the navbar and relevant component according to the path.
+ */
 function App() {
     return (
         <Router>
@@ -13,7 +16,7 @@ function App() {
             <PublicRoute exact path="/register" component={Register} />
             <PublicRoute exact path="/login" component={Login} />
             <PrivateRoute exact path="/usersonly" component={UsersOnly} />
-        </Router>
+        </Router> 
     );
 }
 

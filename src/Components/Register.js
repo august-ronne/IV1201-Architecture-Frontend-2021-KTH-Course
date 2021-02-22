@@ -6,16 +6,27 @@ import Message from "./Message";
 import RegisterSchema from "../Models/RegisterFormModel";
 import T from "../translation";
 
+/**
+ * Component showing the register page of the client.
+ * @param props props sent to the component
+ */
 const Register = (props) => {
     const [userMessage, setUserMessage] = useState(null);
     let timerID = useRef(null);
 
+    /**
+     * Called when the component has loaded
+     */
     useEffect(() => {
         return () => {
             clearTimeout(timerID);
         };
     }, []);
 
+    /**
+     * Method called when user registers.
+     * @param userData relevant user information.
+     */
     const handleSubmit = (userData) => {
         AuthService.register(userData).then((serverMessage) => {
             if (!serverMessage.isError) {
