@@ -25,8 +25,16 @@
     "button.login": "Log in",
     "button.logout": "Log out",
     "button.register": "Register Account",
+    "button.submit": "Submit",
 
     "text.usersonly": "Only authenticated users can view this page.",
+
+    "error.lowercase": "Only enter lowercase letters",
+
+    "message.register.redirect":"{message}, you will soon be redirected to the login page",
+
+    "data.role.applicant": "Applicant",
+    "data.role.recruiter": "Recruiter",
 
     "test": "hello world {val}"
 }

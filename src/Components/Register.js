@@ -115,7 +115,7 @@ const Register = (props) => {
                             <Message message={errors.confirmPassword} />
                         ) : null}
 
-                        <button id='submit-register' type="submit">Submit</button>
+                        <button id='submit-register' type="submit">{T("button.submit")}</button>
                         {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}
