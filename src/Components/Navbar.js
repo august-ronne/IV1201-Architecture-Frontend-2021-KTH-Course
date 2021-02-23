@@ -5,7 +5,10 @@ import { AuthContext } from "../Context/AuthContext";
 import {T, LANG_LIST} from "../translation";
 
 
-// testing
+/**
+ * Navbar component of the client. Always shown on top.
+ * @param props props sent to the component
+ */
 
 
 const Navbar = (props) => {
@@ -13,6 +16,9 @@ const Navbar = (props) => {
         AuthContext
     );
 
+    /**
+     * Method for when the logout button is used.
+     */
     const onClickLogoutHandler = () => {
         AuthService.logout().then((serverMessage) => {
             if (!serverMessage.isError) {
@@ -23,6 +29,9 @@ const Navbar = (props) => {
         });
     };
 
+    /**
+     * Method listing the available languages of the client. 
+     */
     const languageSelect = () => {
         return LANG_LIST.map((e, i) => {
             return (
@@ -33,6 +42,9 @@ const Navbar = (props) => {
         })
     }
 
+    /**
+     * Method showing the navbar when an unauthenticated user is browsing.
+     */
     const unauthenticatedNavbar = () => {
         return (
             <>
@@ -52,16 +64,20 @@ const Navbar = (props) => {
         );
     };
 
+    /**
+     * Method showing the navbar when an authenticated user is browsing.
+     */
     const authenticatedNavbar = () => {
         return (
             <>
                 <Link to="/">
                     <li>{T("nav.home")}</li>
                 </Link>
-                <Link to="/usersonly">
-                    <li>{T("nav.usersonly")}</li>
+                <Link  to="/usersonly">
+                    <li id='auth-user'>{T("nav.usersonly")}</li>
                 </Link>
                 <button
+                    id='logout-navbar'
                     type="button"
                     onClick={onClickLogoutHandler}
                 >
@@ -71,11 +87,14 @@ const Navbar = (props) => {
         );
     };
 
+    /**
+     * Method showing additional content for authorized users.
+     */
     const authorizedNavbar = () => {
         return (
             <>
                 <Link to="/admin">
-                    <li>Admin</li>
+                    <li id='admin-navbar' >Admin</li>
                 </Link>
             </>
         )
@@ -84,7 +103,7 @@ const Navbar = (props) => {
     return (
         <nav>
             <div>
-                <Link to="/">
+                <Link id='homepage-navbar' to="/">
                     <div>{T("title.homePage")}</div>
                 </Link>
                 <div>

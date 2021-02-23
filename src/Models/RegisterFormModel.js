@@ -1,5 +1,8 @@
 import * as yup from "yup";
 
+/**
+ * Validation schema for registering.
+ */
 const RegisterSchema = yup.object().shape({
     firstName: yup
         .string("Text only")

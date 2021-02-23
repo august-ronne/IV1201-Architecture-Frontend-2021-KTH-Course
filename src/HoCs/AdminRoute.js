@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 
+/**
+ * Route which limits contents to the recruiter 
+ */
 const AdminRoute = ({ component: Component, ...rest }) => {
     const { isAuthenticated, role } = useContext(AuthContext);
     return (

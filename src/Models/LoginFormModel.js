@@ -1,5 +1,8 @@
 import * as yup from "yup";
 
+/**
+ * Validation schema for login.
+ */
 const LoginSchema = yup.object().shape({
     email: yup
         .string()

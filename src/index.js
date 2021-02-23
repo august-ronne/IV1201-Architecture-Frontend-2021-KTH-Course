@@ -5,6 +5,10 @@ import AuthProvider from "./Context/AuthContext";
 import registerServiceWorker from './registerServiceWorker';
 import {T, initLang} from "./translation";
 
+/**
+ * Entry point of the client. Wraps the entire application in a provider which
+ * supplies the context.
+ */
 async function render() {
 
     await initLang();

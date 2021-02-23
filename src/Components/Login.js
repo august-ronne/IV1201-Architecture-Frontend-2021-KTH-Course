@@ -7,17 +7,28 @@ import Message from "./Message";
 import LoginSchema from "../Models/LoginFormModel";
 import T from "../translation";
 
+/**
+ * Component of Login page.
+ * @param props props sent to the page
+ */
 const Login = (props) => {
     const [userMessage, setUserMessage] = useState(null);
     const authContext = useContext(AuthContext);
     let timerID = useRef(null);
 
+    /**
+     * Hook that is called at the loading of the page.
+     */
     useEffect(() => {
         return () => {
             clearTimeout(timerID);
         };
     }, []);
 
+    /**
+     * Submit function for the login form.
+     * @param userData data that is used as credentials.
+     */
     const handleSubmit = (userData) => {
         console.log(userData);
         AuthService.login(userData).then((serverMessage) => {
@@ -49,13 +60,13 @@ const Login = (props) => {
                 {({ errors, touched }) => (
                     <Form>
                         <label htmlFor="email">{T("label.email")}</label>
-                        <Field name="email" placeholder={T("placeholder.email")} />
+                        <Field id='email-login' name="email" placeholder={T("placeholder.email")} />
                         {errors.email && touched.email ? (
                             <Message message={errors.email} />
                         ) : null}
 
                         <label htmlFor="password">{T("label.password")}</label>
-                        <Field
+                        <Field id='password-login'
                             name="password"
                             type="password"
                             placeholder={T("placeholder.password")}

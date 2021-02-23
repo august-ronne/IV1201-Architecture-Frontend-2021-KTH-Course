@@ -1,6 +1,16 @@
 // const serverURL = process.env.REACT_APP_SERVER_URL;
 const serverURL = "";
 
+
+/**
+ * Object holding all relevant services to the client.
+ * Communicates with the endpoints of the backend server.
+ * Services are:
+ *  -login
+ *  -register
+ *  -logout
+ *  -check user status
+ */
 const AuthService = {
     login: (user) => {
         return fetch(`${serverURL}/auth/login`, {
