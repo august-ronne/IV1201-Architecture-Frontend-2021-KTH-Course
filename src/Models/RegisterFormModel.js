@@ -18,15 +18,15 @@ const RegisterSchema = yup.object().shape({
         .required("You must enter your last name"),
     email: yup
         .string()
-        .email("Please enter a valid e-mail address")
+        .email("error.validEmail")
         .min(6)
         .max(50)
-        .required("You must enter your email address"),
+        .required("error.validEmail"),
     username: yup
         .string()
         .min(2)
         .max(50)
-        .required("You must enter your prefered username")
+        .required("error.validUsername")
         .matches(
             /^[a-zA-Z0-9]+$/,
             "Only lowercase and capital letters, as well as numbers are allowed"

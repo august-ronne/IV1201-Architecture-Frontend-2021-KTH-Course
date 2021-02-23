@@ -3,24 +3,29 @@
     "nav.login": "Login",
     "nav.register": "Register",
     "nav.usersonly": "Secret page",
+    "nav.recover": "Recover",
 
     "title.loading": "Loading...",
     "title.homePage": "Home Page",
     "title.signin": "Please sign in",
     "title.register": "Please register an account",
     "title.usersonly": "Secret page for logged in users!",
+    "title.recover": "Enter email to recover password",
+    "title.setPassword": "Enter recover token and new password",
 
     "label.email": "Email:",
     "label.password": "Password:",
     "label.username": "Username:",
     "label.firstName": "First Name:",
     "label.lastName": "Last Name:",
+    "label.token": "Recovery token:",
 
     "placeholder.email": "Enter email...",
     "placeholder.password": "Enter password...",
     "placeholder.username": "Enter username...",
     "placeholder.firstName": "Enter first name...",
     "placeholder.lastName": "Enter last name...",
+    "placeholder.token": "Enter recovery token...",
 
     "button.login": "Log in",
     "button.logout": "Log out",
@@ -35,6 +40,34 @@
 
     "data.role.applicant": "Applicant",
     "data.role.recruiter": "Recruiter",
+
+    "error.badRequest": "Bad request",
+    "error.token": "Bad token",
+    "error.upgrade": "User could not change role",
+    "accepted.upgrade": "User upgraded",
+    "error.authenticated": "User not authenticated",
+    "error.unexpected": "Unexpected server error",
+
+    "accepted.logout": "Logout successful",
+    "error.logout": "Unable to logout",
+    "accepted.login": "Login successful",
+    "error.login": "Invalid login credentials",
+    "accepted.setPassword": "Password set",
+    "error.setPassword": "Invalid recover token",
+    "accepted.recover": "Sent recovery token",
+    "error.recover": "Could not generate a recover token",
+
+    "error.registred": "Invalid registration credentials",
+    "error.alreadyRegistered": "Email already registered",
+    "accepted.register": "Account registred",
+    "accepeted.information": "User information successfully retrieved",
+
+    "error.validEmail": "Requires valid email",
+    "error.validToken": "Requires valid token",
+    "error.validPassword": "Requires valid password",
+    "error.validUsername": "Requires valid username",
+    "error.validFirstName": "Requires valid first name",
+    "error.validLastName": "Requires valid last name",
 
     "test": "hello world {val}"
 }

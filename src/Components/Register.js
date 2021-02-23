@@ -30,15 +30,12 @@ const Register = (props) => {
     const handleSubmit = (userData) => {
         AuthService.register(userData).then((serverMessage) => {
             if (!serverMessage.isError) {
-                setUserMessage(
-                    serverMessage.msgBody +
-                        ", you will soon be redirected to the login page"
-                );
+                setUserMessage(T(serverMessage.msgBody));
                 timerID = setTimeout(() => {
                     props.history.push("/login");
                 }, 2000);
             } else {
-                setUserMessage(serverMessage.msgBody);
+                setUserMessage(T(serverMessage.msgBody));
             }
         });
     };

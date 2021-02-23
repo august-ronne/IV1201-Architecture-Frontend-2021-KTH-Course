@@ -2,71 +2,52 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { Formik, Form, Field } from "formik";
 
 import AuthService from "../Services/AuthService";
-import { AuthContext } from "../Context/AuthContext";
 import Message from "./Message";
-import LoginSchema from "../Models/LoginFormModel";
+import SetPasswordSchema from "../Models/SetPasswordFormModel";
 import T from "../translation";
 
-/**
- * Component of Login page.
- * @param props props sent to the page
- */
-const Login = (props) => {
+const SetPassword = (props) => {
     const [userMessage, setUserMessage] = useState(null);
-    const authContext = useContext(AuthContext);
     let timerID = useRef(null);
 
-    /**
-     * Hook that is called at the loading of the page.
-     */
     useEffect(() => {
         return () => {
             clearTimeout(timerID);
         };
     }, []);
 
-    /**
-     * Submit function for the login form.
-     * @param userData data that is used as credentials.
-     */
     const handleSubmit = (userData) => {
         console.log(userData);
-        AuthService.login(userData).then((serverMessage) => {
+
+        AuthService.setPassword(userData).then((serverMessage) => {
             console.log(serverMessage);
-            const { isAuthenticated, user, msgBody } = serverMessage;
-            if (isAuthenticated) {
-                setUserMessage(T(msgBody));
-                timerID = setTimeout(() => {
-                    authContext.setUser(user);
-                    authContext.setIsAuthenticated(isAuthenticated);
-                    authContext.setRole(user.role)
-                }, 2000);
-            } else {
-                setUserMessage(T(msgBody));
-            }
+            const { msgBody } = serverMessage;
+            console.log("SET PASSWORD");
+            setUserMessage(T(msgBody));
         });
     };
+
     return (
         <div>
-            <h3>{T("title.signin")}</h3>
+            <h3>{T("title.setPassword")}</h3>
             <Formik
                 initialValues={{
-                    email: "",
+                    token: "",
                     password: "",
                 }}
-                validationSchema={LoginSchema}
+                validationSchema={SetPasswordSchema}
                 onSubmit={handleSubmit}
             >
                 {({ errors, touched }) => (
                     <Form>
-                        <label htmlFor="email">{T("label.email")}</label>
-                        <Field id='email-login' name="email" placeholder={T("placeholder.email")} />
-                        {errors.email && touched.email ? (
-                            <Message message={errors.email} />
+                        <label htmlFor="token">{T("label.token")}</label>
+                        <Field name="token" placeholder={T("placeholder.token")} />
+                        {errors.token && touched.token ? (
+                            <Message message={errors.token} />
                         ) : null}
 
                         <label htmlFor="password">{T("label.password")}</label>
-                        <Field id='password-login'
+                        <Field
                             name="password"
                             type="password"
                             placeholder={T("placeholder.password")}
@@ -84,4 +65,4 @@ const Login = (props) => {
     );
 };
 
-export default Login;
+export default SetPassword;

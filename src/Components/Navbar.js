@@ -57,6 +57,9 @@ const Navbar = (props) => {
                 <Link to="/register">
                     <li>{T("nav.register")}</li>
                 </Link>
+                <Link to="/recover">
+                    <li>{T("nav.recover")}</li>
+                </Link>
             </>
         );
     };
