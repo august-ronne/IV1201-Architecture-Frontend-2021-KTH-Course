@@ -51,6 +51,7 @@ const Recover = (props) => {
                         ) : null}
 
                         <button type="submit">{T("button.submit")}</button>
+                        {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}
             </Formik>

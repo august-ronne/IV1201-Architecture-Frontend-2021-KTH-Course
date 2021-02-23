@@ -64,6 +64,10 @@
 
     "error.validEmail": "Requires valid email",
     "error.validToken": "Requires valid token",
+    "error.validPassword": "Requires valid password",
+    "error.validUsername": "Requires valid username",
+    "error.validFirstName": "Requires valid first name",
+    "error.validLastName": "Requires valid last name",
 
     "test": "hello world {val}"
 }
