@@ -32,7 +32,8 @@ const SetPassword = (props) => {
             <h3>{T("title.setPassword")}</h3>
             <Formik
                 initialValues={{
-                    email: ""
+                    token: "",
+                    password: "",
                 }}
                 validationSchema={SetPasswordSchema}
                 onSubmit={handleSubmit}
