@@ -1,10 +1,79 @@
-# Getting Started with Create React App
+# IMPORTANT
+Download and install the back-end for this application before continuing with this tutorial.
+The back-end and its documentation can be found here:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**https://github.com/august-ronne/iv1201-auth**
 
+All links are functioning as of 23/02/2021
+---
+# IV1201 Project Group #16: Recruitment Application Front-end
+
+This is the front-end of a reqruitment application built for the KTH Royal Institute of Technology course "IV1201 Arkitektur och design av globala applikationer" (official title), or translated to English, "IV1201 Architecture and Design of Global Applications".
+
+
+- [Visit official website of the KTH Royal Institute of Technology](https://www.kth.se)
+
+
+- [Visit official webpage of the IV1201 course](https://www.kth.se/student/kurser/kurs/IV1201)
+
+
+## Requirements
+
+The requirements listed here need to be met before downloading the code and installing the project in your local environment.
+- **[Node.js](https://nodejs.org/en/)**: This front-end is built using Node.js. You need to install Node.js to run this application.
+- **[npm](https://www.npmjs.com/)**: The Node Package Manager (npm) is used to build the application and install the frameworks it uses. You need to install npm to run this application.
+
+## Installation
+
+Clone the repository and run the command `npm install` inside of the `client` directory. This will install the necessary dependencies.
 ## Available Scripts
 
-In the project directory, you can run:
+## Run Front-end in Development Environment
+
+1. Start the application back-end following the instructions found in the back-end README (if you haven't yet installed the back-end, stop and do that first).
+2. In the `client` directory, run the command `npm start`.
+3. Open https://localhost:3000 on your local machine to view the front-end.
+
+## Run Front-end Tests
+
+To run tests against the front-end development environment, run the command `npm test` in the `client` directory.
+This will run all tests in sequence and output the results in the terminal window that was used run the `npm test` command.
+
+## Front-end Structure
+The file tree contained in the `src` directory looks as follows:
+```
+src
+├── Components
+│   ├── Admin.js
+│   ├── ...
+│   └── UsersOnly.js
+├── Context
+│   └── AuthContext.js
+├── HoCs
+│   ├── AdminRoute.js
+│   ├── ...
+│   └── PublicRoute.js
+├── Models
+│   ├── LoginFormModel.js
+│   └── RegisterFormModel.js
+├── Services
+│   └── AuthService.js
+├── Styles
+│   └── App.css
+├── test
+│   └── acceptance.test.js
+├── App.js
+├── App.test.js
+├── index.js
+├── registerServiceWorker.js
+├── setupTests.js
+└── translation.js
+ ```
+The front-end is built using the React framework. While the general architecture of the front-end will be explained here, the best place to start for anyone without any previous React experience that wishes to continue developing this project would be to consult the official React documentation:
+- [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
+- [React - A JavaScript library for building user interfaces](https://reactjs.org/)
+
+# OLD README BELOW (SAVE FOR NOW)
 
 ### `npm start`
 
