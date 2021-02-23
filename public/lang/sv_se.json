@@ -3,24 +3,29 @@
     "nav.login": "Logga in",
     "nav.register": "Registrera",
     "nav.usersonly": "Hämlig sida",
+    "nav.recover": "Återfå",
 
     "title.loading": "Laddar...",
     "title.homePage": "Landnings sida",
     "title.signin": "Var god att logga in",
     "title.register": "Var god att registrera dig",
     "title.usersonly": "Hämlig sida bara användare kan se!",
+    "title.recover": "Ange email för att återfå konto",
+    "title.setPassword": "Ange återsällnings kod och nytt lösenord",
 
     "label.email": "Email:",
     "label.password": "Lösenord:",
     "label.username": "Användarnamn:",
     "label.firstName": "Förnamn:",
     "label.lastName": "Efternamn:",
+    "label.token": "Återställnings kod:",
 
     "placeholder.email": "Ange email...",
     "placeholder.password": "Ange lösenord...",
     "placeholder.username": "Ange användarnamn...",
     "placeholder.firstName": "Ange förnamn...",
     "placeholder.lastName": "Ange efternamn...",
+    "placeholder.token": "Ange återställnings kåd...",
 
     "button.login": "Logga in",
     "button.logout": "Logga ut",
@@ -32,6 +37,33 @@
     "error.lowercase": "Endast små bokstäver",
 
     "message.register.redirect":"{message}, du blir snart omdirigerad till login",
+
+    "data.role.applicant": "Applikant",
+    "data.role.recruiter": "Rekruterare",
+
+    "error.badRequest": "Ogiltig",
+    "error.token": "Ogiltig kod",
+    "error.upgrade": "Användare kunde inte ändra roll",
+    "accepted.upgrade": "Användare uppgraderad",
+    "error.authenticated": "Användare inte authentiserad",
+    "error.unexpected": "Okänt fel uppstod",
+
+    "accepted.logout": "Ut loggning lyckades",
+    "error.logout": "Ut loggning misslyckades",
+    "accepted.login": "In loggning lyckades",
+    "error.login": "Ogiltig log in",
+    "accepted.setPassword": "Lösenord ändrades",
+    "error.setPassword": "Ogiltig kåd",
+    "accepted.recover": "Skickade återställnings kod",
+    "error.recover": "Kunde inte gennerera återställnings kod",
+
+    "error.registred": "Ogilitg registrering",
+    "error.alreadyRegistered": "Email redan registrerat",
+    "accepted.register": "Account registred",
+    "accepeted.information": "Användarinformation hämtad",
+
+    "error.validEmail": "Kräver giltigt email",
+    "error.validToken": "Kräver giltigt återställnings kod",
 
     "test": "hej värld {val}"
 }

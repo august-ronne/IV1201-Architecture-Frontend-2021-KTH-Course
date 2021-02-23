@@ -11,18 +11,21 @@
     "title.register": "Please register an account",
     "title.usersonly": "Secret page for logged in users!",
     "title.recover": "Enter email to recover password",
+    "title.setPassword": "Enter recover token and new password",
 
     "label.email": "Email:",
     "label.password": "Password:",
     "label.username": "Username:",
     "label.firstName": "First Name:",
     "label.lastName": "Last Name:",
+    "label.token": "Recovery token:",
 
     "placeholder.email": "Enter email...",
     "placeholder.password": "Enter password...",
     "placeholder.username": "Enter username...",
     "placeholder.firstName": "Enter first name...",
     "placeholder.lastName": "Enter last name...",
+    "placeholder.token": "Enter recovery token...",
 
     "button.login": "Log in",
     "button.logout": "Log out",
@@ -58,6 +61,9 @@
     "error.alreadyRegistered": "Email already registered",
     "accepted.register": "Account registred",
     "accepeted.information": "User information successfully retrieved",
+
+    "error.validEmail": "Requires valid email",
+    "error.validToken": "Requires valid token",
 
     "test": "hello world {val}"
 }

@@ -25,9 +25,13 @@ const Recover = (props) => {
             console.log(serverMessage);
             const { recoveryToken, msgBody } = serverMessage;
             console.log("SENT BY EMAIL: ", recoveryToken);
+            timerID = setTimeout(() => {
+                props.history.push("/recoverpwd");
+            }, 2000);
             setUserMessage(T(msgBody));
         });
     };
+
     return (
         <div>
             <h3>{T("title.recover")}</h3>
@@ -47,7 +51,6 @@ const Recover = (props) => {
                         ) : null}
 
                         <button type="submit">{T("button.submit")}</button>
-                        {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}
             </Formik>
