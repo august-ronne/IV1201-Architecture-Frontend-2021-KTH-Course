@@ -3,12 +3,14 @@
     "nav.login": "Login",
     "nav.register": "Register",
     "nav.usersonly": "Secret page",
+    "nav.recover": "Recover",
 
     "title.loading": "Loading...",
     "title.homePage": "Home Page",
     "title.signin": "Please sign in",
     "title.register": "Please register an account",
     "title.usersonly": "Secret page for logged in users!",
+    "title.recover": "Enter email to recover password",
 
     "label.email": "Email:",
     "label.password": "Password:",
@@ -35,6 +37,27 @@
 
     "data.role.applicant": "Applicant",
     "data.role.recruiter": "Recruiter",
+
+    "error.badRequest": "Bad request",
+    "error.token": "Bad token",
+    "error.upgrade": "User could not change role",
+    "accepted.upgrade": "User upgraded",
+    "error.authenticated": "User not authenticated",
+    "error.unexpected": "Unexpected server error",
+
+    "accepted.logout": "Logout successful",
+    "error.logout": "Unable to logout",
+    "accepted.login": "Login successful",
+    "error.login": "Invalid login credentials",
+    "accepted.setPassword": "Password set",
+    "error.setPassword": "Invalid recover token",
+    "accepted.recover": "Sent recovery token",
+    "error.recover": "Could not generate a recover token",
+
+    "error.registred": "Invalid registration credentials",
+    "error.alreadyRegistered": "Email already registered",
+    "accepted.register": "Account registred",
+    "accepeted.information": "User information successfully retrieved",
 
     "test": "hello world {val}"
 }

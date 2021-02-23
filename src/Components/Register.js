@@ -19,14 +19,12 @@ const Register = (props) => {
     const handleSubmit = (userData) => {
         AuthService.register(userData).then((serverMessage) => {
             if (!serverMessage.isError) {
-                setUserMessage(
-                    T("message.register.redirect", {message: serverMessage.msgBody})
-                );
+                setUserMessage(T(serverMessage.msgBody));
                 timerID = setTimeout(() => {
                     props.history.push("/login");
                 }, 2000);
             } else {
-                setUserMessage(serverMessage.msgBody);
+                setUserMessage(T(serverMessage.msgBody));
             }
         });
     };

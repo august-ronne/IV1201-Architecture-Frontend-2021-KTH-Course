@@ -54,6 +54,17 @@ const AuthService = {
             }
         });
     },
+    recover: (user) => {
+        return fetch(`${serverURL}/auth/recover`, {
+            method: "post",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then(({serverMessage}) => serverMessage);
+    },
 };
 
 export default AuthService;

@@ -4,10 +4,10 @@ import { Formik, Form, Field } from "formik";
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
 import Message from "./Message";
-import LoginSchema from "../Models/LoginFormModel";
+import RecoverSchema from "../Models/RecoverFormModel";
 import T from "../translation";
 
-const Login = (props) => {
+const Recover = (props) => {
     const [userMessage, setUserMessage] = useState(null);
     const authContext = useContext(AuthContext);
     let timerID = useRef(null);
@@ -20,30 +20,22 @@ const Login = (props) => {
 
     const handleSubmit = (userData) => {
         console.log(userData);
-        AuthService.login(userData).then((serverMessage) => {
+
+        AuthService.recover(userData).then((serverMessage) => {
             console.log(serverMessage);
-            const { isAuthenticated, user, msgBody } = serverMessage;
-            if (isAuthenticated) {
-                setUserMessage(T(msgBody));
-                timerID = setTimeout(() => {
-                    authContext.setUser(user);
-                    authContext.setIsAuthenticated(isAuthenticated);
-                    authContext.setRole(user.role)
-                }, 2000);
-            } else {
-                setUserMessage(T(msgBody));
-            }
+            const { recoveryToken, msgBody } = serverMessage;
+            console.log("SENT BY EMAIL: ", recoveryToken);
+            setUserMessage(T(msgBody));
         });
     };
     return (
         <div>
-            <h3>{T("title.signin")}</h3>
+            <h3>{T("title.recover")}</h3>
             <Formik
                 initialValues={{
                     email: "",
-                    password: "",
                 }}
-                validationSchema={LoginSchema}
+                validationSchema={RecoverSchema}
                 onSubmit={handleSubmit}
             >
                 {({ errors, touched }) => (
@@ -52,16 +44,6 @@ const Login = (props) => {
                         <Field name="email" placeholder={T("placeholder.email")} />
                         {errors.email && touched.email ? (
                             <Message message={errors.email} />
-                        ) : null}
-
-                        <label htmlFor="password">{T("label.password")}</label>
-                        <Field
-                            name="password"
-                            type="password"
-                            placeholder={T("placeholder.password")}
-                        />
-                        {errors.password && touched.password ? (
-                            <Message message={errors.password} />
                         ) : null}
 
                         <button type="submit">{T("button.submit")}</button>
@@ -73,4 +55,4 @@ const Login = (props) => {
     );
 };
 
-export default Login;
+export default Recover;
