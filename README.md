@@ -73,6 +73,28 @@ The front-end is built using the React framework. While the general architecture
 - [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
 - [React - A JavaScript library for building user interfaces](https://reactjs.org/)
 
+### File Tree Explained
+
+**Components**
+
+Every component in this directory can be said to represent its own view. Some of them, like `Message.js`, is only rendered as an inner component of other components, but could theoretically be rendered on its own.
+
+**Context**
+
+The global state of the front-end is stored here. Currently the global state consists of the status of the user browsing the front-end, for example if the user is authenticated or not. Each component in the whole front-end will have access to the global state.
+
+**HoCs**
+
+HoCs stands for Higher-order Components. These components can not be considered as views on their own, but rather encapsulates other view components in order to generalize some functionality.
+
+**Models**
+
+In this application only the html forms are modeled in the `Models` directory, but other models could be added here if you would need to.
+The forms modeled here are used in the `Register.js` and `Login.js`components. The models are created in order to supply the forms with validation.
+
+**Services**
+The files in this directory are responsible for calling the API of the back-end/back-ends the front-end wishes to use.
+
 # OLD README BELOW (SAVE FOR NOW)
 
 ### `npm start`
