@@ -16,6 +16,18 @@ This is the front-end of a reqruitment application built for the KTH Royal Insti
 
 - [Visit official webpage of the IV1201 course](https://www.kth.se/student/kurser/kurs/IV1201)
 
+## Summary of Application
+
+The application requirements and description can be found in the pdf below:
+
+ https://github.com/august-ronne/iv1201-front-end/blob/master/application-description.pdf
+
+The application currently implements **Use Case 5.1 (Create Account)**, and **Use Case 5.2 (Login)**.
+To read about these use cases in greater detail, please refer to the application description linked above.
+
+The **Register** and **Login** pages are reachable from the **Home** page menu:
+
+
 
 ## Requirements
 
@@ -26,7 +38,6 @@ The requirements listed here need to be met before downloading the code and inst
 ## Installation
 
 Clone the repository and run the command `npm install` inside of the `client` directory. This will install the necessary dependencies.
-## Available Scripts
 
 ## Run Front-end in Development Environment
 
