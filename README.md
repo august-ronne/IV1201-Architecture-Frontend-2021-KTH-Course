@@ -16,7 +16,7 @@ This is the front-end of a reqruitment application built for the KTH Royal Insti
 
 - [Visit official webpage of the IV1201 course](https://www.kth.se/student/kurser/kurs/IV1201)
 
-## Summary of Application
+## Application Explained
 
 The application requirements and description can be found in the pdf below:
 
@@ -27,7 +27,15 @@ To read about these use cases in greater detail, please refer to the application
 
 The **Register** and **Login** pages are reachable from the **Home** page menu:
 
+<kbd><img src="/readme-images/readme-img-home.png" width="600" height="400"></kbd>
 
+This is the application **Register** page:
+
+<kbd><img src="/readme-images/readme-img-register.png" width="600" height="400"></kbd>
+
+This is the application **Login** page:
+
+<kbd><img src="/readme-images/readme-img-login.png" width="600" height="400"></kbd>
 
 ## Requirements
 
