@@ -31,7 +31,8 @@ const isLocalhost = Boolean(
       }
       console.log("REG2");
       window.addEventListener('load', () => {
-        const swUrl = `http://localhost:3000/service-worker.js`
+        const swUrl = `https://gentle-earth-90649.herokuapp.com/service-worker.js`
+        // const swUrl = `http://localhost:3000/service-worker.js`
   
         if (!isLocalhost) {
           // Is not local host. Just register service worker

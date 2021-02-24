@@ -51,6 +51,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://localhost:5000",
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/plugin-transform-modules-commonjs": "^7.12.13",
