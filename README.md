@@ -1,10 +1,12 @@
 # IMPORTANT
+
+**All links in this README are functioning as of 23/02/2021**
+
+
 Download and install the back-end for this application before continuing with this tutorial.
 The back-end and its documentation can be found here:
 
 **https://github.com/august-ronne/iv1201-auth**
-
-All links are functioning as of 23/02/2021
 ---
 # IV1201 Project Group #16: Recruitment Application Front-end
 
@@ -18,7 +20,7 @@ This is the front-end of a reqruitment application built for the KTH Royal Insti
 
 ## Application Explained
 
-The application requirements and description can be found in the pdf below:
+The application requirements and description can be found in the pdf linked below:
 
  https://github.com/august-ronne/iv1201-front-end/blob/master/application-description.pdf
 
@@ -37,7 +39,7 @@ This is the application **Login** page:
 
 <kbd><img src="/readme-images/readme-img-login.png" width="600" height="400"></kbd>
 
-## Requirements
+## Tools Required to Install and Run Application
 
 The requirements listed here need to be met before downloading the code and installing the project in your local environment.
 - **[Node.js](https://nodejs.org/en/)**: This front-end is built using Node.js. You need to install Node.js to run this application.
@@ -53,10 +55,24 @@ Clone the repository and run the command `npm install` inside of the `client` di
 2. In the `client` directory, run the command `npm start`.
 3. Open https://localhost:3000 on your local machine to view the front-end.
 
-## Run Front-end Tests
+## Run Front-end Tests in Development Environment
 
 To run tests against the front-end development environment, run the command `npm test` in the `client` directory.
+This command will launch the test runner in interactive watch mode.
 This will run all tests in sequence and output the results in the terminal window that was used run the `npm test` command.
+
+## Build App for Production
+
+To build the application for production, run the command `npm run build` in the `client` directory.
+
+Instead of providing a sub-par explanation of the `build` script, we cite
+the [create-react-app documentation](https://create-react-app.dev/docs/documentation-intro):
+
+>Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+
+>The build is minified and the filenames include the hashes.Your app is ready to be deployed!
+
+>See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information."
 
 ## Front-end Structure
 The file tree contained in the `src` directory looks as follows:
@@ -92,7 +108,7 @@ The front-end is built using the React framework. While the general architecture
 - [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
 - [React - A JavaScript library for building user interfaces](https://reactjs.org/)
 
-### File Tree Explained
+### Application Structure Explained
 
 **Components**
 
@@ -114,67 +130,8 @@ The forms modeled here are used in the `Register.js` and `Login.js`components. T
 **Services**
 The files in this directory are responsible for calling the API of the back-end/back-ends the front-end wishes to use.
 
-# OLD README BELOW (SAVE FOR NOW)
+**Styles**
+Every CSS file is placed here
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Tests**
+Contains acceptance tests
