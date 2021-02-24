@@ -47,9 +47,10 @@ The requirements listed here need to be met before downloading the code and inst
 - **[Node.js](https://nodejs.org/en/)**: This front-end is built using Node.js. You need to install Node.js to run this application.
 - **[npm](https://www.npmjs.com/)**: The Node Package Manager (npm) is used to build the application and install the frameworks it uses. You need to install npm to run this application.
 
-## Installation
+## Installation and Configuration
 
-Clone the repository and run the command `npm install` inside of the `client` directory. This will install the necessary dependencies.
+1. Clone the repository and run the command `npm install` inside of the root directory. This will install the necessary dependencies.
+2. Create a file called `.env` in the root directory. Instructions on what needs to be in the file can be found in the file `.env.example`
 
 ## Run Front-end in Development Environment
 
