@@ -1,14 +1,16 @@
 # IMPORTANT
 
-**All links in this README are functioning as of 23/02/2021**
-
-
 Download and install the back-end for this application before continuing with this tutorial.
 The back-end and its documentation can be found here:
 
 **https://github.com/august-ronne/iv1201-auth**
----
+
+
+____
+
 # IV1201 Project Group #16: Recruitment Application Front-end
+
+**All links in this README are functioning as of 23/02/2021**
 
 This is the front-end of a reqruitment application built for the KTH Royal Institute of Technology course "IV1201 Arkitektur och design av globala applikationer" (official title), or translated to English, "IV1201 Architecture and Design of Global Applications".
 
