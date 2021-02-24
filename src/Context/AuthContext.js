@@ -21,6 +21,7 @@ function AuthProvider({ children }) {
      * Initializes the context with relevant information.
      */
     useEffect(() => {
+        console.log('enters useEffect')
         AuthService.isAuthenticated().then((serverMessage) => {
             console.log(serverMessage);
             setUser(serverMessage.user);

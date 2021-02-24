@@ -12,12 +12,13 @@ const appTitle = "React App";
 // 	.withCapabilities({ browserName: "chrome" })
 // 	.build();
 
-jest.setTimeout(30000);
+jest.setTimeout(10000);
 
 
 var browser = new webdriver.Builder()
 	.usingServer()
-	.withCapabilities({ browserName: "firefox" })
+	// .withCapabilities({ browserName: "firefox" })
+	.withCapabilities(webdriver.Capabilities.firefox())
 	.build();
 
 
@@ -117,6 +118,8 @@ describe("Login Page", function() {
 		return new Promise(async (resolve, reject) => {
 			browser.get(serverUri + "login") 
 
+			// await browser.sleep(2000)
+
 			browser
 				.wait(until.elementLocated(By.id('button-login')), 10000)
 				.click()
@@ -165,7 +168,7 @@ describe("Login Page", function() {
 		});
 	});
 
-	it("Should load the user only page while logged in as admin", function() {
+	it("Should load the user only page while logged in as a user", function() {
 		return new Promise(async (resolve, reject) => {
 			await browser.sleep(3000)
 

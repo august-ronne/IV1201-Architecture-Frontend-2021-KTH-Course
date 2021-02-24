@@ -75,7 +75,7 @@ const Login = (props) => {
                             <Message message={errors.password} />
                         ) : null}
 
-                        <button type="submit">{T("button.submit")}</button>
+                        <button id='button-login' type="submit">{T("button.submit")}</button>
                         {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}

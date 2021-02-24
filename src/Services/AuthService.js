@@ -1,5 +1,5 @@
-// const serverURL = process.env.REACT_APP_SERVER_URL;
-const serverURL = "";
+const serverURL = process.env.REACT_APP_SERVER_URL;
+// const serverURL = "";
 
 
 /**
@@ -51,6 +51,7 @@ const AuthService = {
     },
     isAuthenticated: () => {
         return fetch(`${serverURL}/auth/userstatus`).then((res) => {
+            console.log(res)
             if (res.status === 500) {
                 res.json().then(({ serverMessage }) => {
                     return {
