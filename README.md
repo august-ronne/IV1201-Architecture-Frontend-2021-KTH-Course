@@ -41,7 +41,7 @@ This is the application **Login** page:
 
 <kbd><img src="/readme-images/readme-img-login.png" width="600" height="400"></kbd>
 
-## 2. Tools Required to Install and Run Application
+## 2. Tools Required to Install and Run Front-end
 
 The requirements listed here need to be met before downloading the code and installing the project in your local environment.
 - **[Node.js](https://nodejs.org/en/)**: This front-end is built using Node.js. You need to install Node.js to run this application.
@@ -145,7 +145,7 @@ Every CSS file is placed here
 
 Contains acceptance tests
 
-## Frameworks Used
+## 8. Frameworks Used
 
 The frameworks that are listed below are installed in your project when you run the `npm install` command.
 To read more about any of these frameworks, visit the [npm website](https://www.npmjs.com/) and copy the
