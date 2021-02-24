@@ -137,3 +137,33 @@ Every CSS file is placed here
 
 **Tests**
 Contains acceptance tests
+
+## Frameworks Used
+
+The frameworks that are listed below are installed in your project when you run the `npm install` command.
+To read more about any of these frameworks, visit the [npm website](https://www.npmjs.com/) and copy the
+**exact** framework name from the list below and paste it in their search bar.
+
+* hookform/resolvers
+* testing-library/jest-dom
+* testing-library/user-event
+* babel-core
+* babel-preset-airbnb
+* babel-preset-es2015
+* babel-preset-react
+* babel-preset-stage-0
+* chromedriver
+* formik
+* geckodriver
+* node-fetch
+* react
+* react-dom
+* react-formal
+* react-hook-form
+* react-router
+* react-router-dom
+* react-scripts
+* selenium-webdriver
+* sinon
+* web-vitals
+* yup
