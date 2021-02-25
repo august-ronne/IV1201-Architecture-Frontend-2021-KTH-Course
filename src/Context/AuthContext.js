@@ -23,6 +23,10 @@ function AuthProvider({ children }) {
     useEffect(() => {
         console.log('enters useEffect')
         AuthService.isAuthenticated().then((serverMessage) => {
+            if(!serverMessage.accepted) {
+                setIsLoaded(true);
+                return;
+            }
             console.log(serverMessage);
             setUser(serverMessage.user);
             setIsAuthenticated(serverMessage.isAuthenticated);
