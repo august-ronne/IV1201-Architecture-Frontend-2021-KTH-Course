@@ -64,6 +64,13 @@
 
     "error.validEmail": "Kräver giltigt email",
     "error.validToken": "Kräver giltigt återställnings kod",
+    "error.validPassword": "Kräver giltigt lösenord",
+    "error.validUsername": "Kräver giltigt användarnamn",
+    "error.validFirstName": "Kräver giltigt förnamn",
+    "error.validLastName": "Kräver giltigt efternamn",
+    "error.passwordMissmatch": "Lösenordet är inte samma som fältet ovanför",
+    "error.long": "Detta fält kan inte vara mer än 50 karaktärer långt",
+    "error.short": "Detta fält måste vara minst 2 karaktärer långt",
 
     "test": "hej värld {val}"
 }

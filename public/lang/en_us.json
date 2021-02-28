@@ -68,6 +68,9 @@
     "error.validUsername": "Requires valid username",
     "error.validFirstName": "Requires valid first name",
     "error.validLastName": "Requires valid last name",
+    "error.passwordMissmatch": "Password confirmation is not the same as the first password you entered",
+    "error.long": "Your last name must be 50 characters or shorter",
+    "error.short": "Your first name must be at least 2 characters",
 
     "test": "hello world {val}"
 }
