@@ -19,6 +19,7 @@
     "label.firstName": "First Name:",
     "label.lastName": "Last Name:",
     "label.token": "Recovery token:",
+    "label.role": "Signed in as: {role}",
 
     "placeholder.email": "Enter email...",
     "placeholder.password": "Enter password...",
@@ -33,6 +34,7 @@
     "button.submit": "Submit",
 
     "text.usersonly": "Only authenticated users can view this page.",
+    "text.adminonly": "Only authenticated admins can view this page.",
 
     "error.lowercase": "Only enter lowercase letters",
 

@@ -19,6 +19,7 @@
     "label.firstName": "Förnamn:",
     "label.lastName": "Efternamn:",
     "label.token": "Återställnings kod:",
+    "label.role": "Inloggad som: {role}",
 
     "placeholder.email": "Ange email...",
     "placeholder.password": "Ange lösenord...",
@@ -33,6 +34,7 @@
     "button.submit": "Skicka",
 
     "text.usersonly": "Bara inloggade användare kan se denna sida.",
+    "text.adminsonly": "Bara inloggade administratörer kan se denna sida.",
 
     "error.lowercase": "Endast små bokstäver",
 

@@ -106,6 +106,7 @@ const Navbar = (props) => {
                 <Link id='homepage-navbar' to="/">
                     <div>{T("title.homePage")}</div>
                 </Link>
+                {role ? <p>{T("label.role", {role: T("data.role."+role)})}</p> : null}
                 <div>
                     <ul>
                         {!isAuthenticated
