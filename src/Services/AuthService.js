@@ -1,5 +1,5 @@
-const serverURL = process.env.REACT_APP_SERVER_URL;
-// const serverURL = "";
+// const serverURL = process.env.REACT_APP_SERVER_URL;
+const serverURL = "";
 
 
 /**
@@ -87,6 +87,15 @@ const AuthService = {
             .then((res) => res.json())
             .then(({serverMessage}) => serverMessage);
     },
+    getProfiles: () => {
+        return fetch(`${serverURL}/app/competences`).then((res) => {
+            console.log(res)
+            return res.json().then(({serverMessage}) => {
+                return serverMessage
+            })
+
+        })
+    }
 };
 
 export default AuthService;

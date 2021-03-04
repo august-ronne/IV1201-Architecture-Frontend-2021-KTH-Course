@@ -94,7 +94,7 @@ const Navbar = (props) => {
         return (
             <>
                 <Link to="/admin">
-                    <li id='admin-navbar' >Admin</li>
+                    <li id='admin-navbar' >Show application</li>
                 </Link>
             </>
         )

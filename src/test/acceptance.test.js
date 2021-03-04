@@ -5,6 +5,7 @@ const until = webdriver.until
 require("geckodriver");
 
 const serverUri = "http://localhost:3000/";
+// const serverUri = REACT_APP_URL + "/";
 const appTitle = "React App";
 
 // var browser = new webdriver.Builder()
