@@ -4,6 +4,7 @@
     "nav.register": "Registrera",
     "nav.usersonly": "Hämlig sida",
     "nav.recover": "Återfå",
+    "nav.application": "Visa applikationer",
 
     "title.loading": "Laddar...",
     "title.homePage": "Landnings sida",
@@ -12,6 +13,7 @@
     "title.usersonly": "Hämlig sida bara användare kan se!",
     "title.recover": "Ange email för att återfå konto",
     "title.setPassword": "Ange återsällnings kod och nytt lösenord",
+    "titel.application": "Applikation",
 
     "label.email": "Email:",
     "label.password": "Lösenord:",
@@ -20,6 +22,10 @@
     "label.lastName": "Efternamn:",
     "label.token": "Återställnings kod:",
     "label.role": "Inloggad som: {role}",
+    "label.birthdate" : "Född",
+    "label.competence" : "Kompetens: ",
+    "label.year.experience": "År av erfarenhet",
+    "label.status": "Status av applikation",
 
     "placeholder.email": "Ange email...",
     "placeholder.password": "Ange lösenord...",
@@ -34,7 +40,7 @@
     "button.submit": "Skicka",
 
     "text.usersonly": "Bara inloggade användare kan se denna sida.",
-    "text.adminsonly": "Bara inloggade administratörer kan se denna sida.",
+    "text.adminsonly": "Applikationer",
 
     "error.lowercase": "Endast små bokstäver",
 
@@ -42,6 +48,8 @@
 
     "data.role.applicant": "Applikant",
     "data.role.recruiter": "Rekruterare",
+    "data.competence.korvgrillning": "Korvgrillning",
+    "data.competence.karuselldrift": "Karuselldrift",
 
     "error.badRequest": "Ogiltig",
     "error.token": "Ogiltig kod",
@@ -52,7 +60,7 @@
 
     "accepted.logout": "Ut loggning lyckades",
     "error.logout": "Ut loggning misslyckades",
-    "accepted.login": "In loggning lyckades",
+    "accepted.login": "Inloggning lyckades",
     "error.login": "Ogiltig log in",
     "accepted.setPassword": "Lösenord ändrades",
     "error.setPassword": "Ogiltig kåd",
@@ -74,5 +82,10 @@
     "error.long": "Detta fält kan inte vara mer än 50 karaktärer långt",
     "error.short": "Detta fält måste vara minst 2 karaktärer långt",
 
-    "test": "hej värld {val}"
+    "test": "hej värld {val}",
+    "option.rejected": "Avvisad",
+    "option.accepted": "Accepterad",
+    "option.unhandled": "Obehandlad",
+
+    "input.change": "Byt"
 }
