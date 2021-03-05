@@ -17,13 +17,19 @@ function AuthProvider({ children }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [role, setRole] = useState("");
 
+    console.log('isAuthenticated change ', isAuthenticated)
+
     /**
      * Initializes the context with relevant information.
      */
     useEffect(() => {
         console.log('enters useEffect')
         AuthService.isAuthenticated().then((serverMessage) => {
-            console.log(serverMessage);
+            console.log('auth', serverMessage);
+            // if(!serverMessage.accepted) {
+            //     setIsLoaded(true);
+            //     return;
+            // }
             setUser(serverMessage.user);
             setIsAuthenticated(serverMessage.isAuthenticated);
             setIsLoaded(true);

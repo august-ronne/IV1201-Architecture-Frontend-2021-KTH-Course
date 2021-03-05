@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./Styles/App.css";
 
-import { Home, Register, Login, Navbar, UsersOnly, Admin, Recover, SetPassword } from "./Components/index";
+import { Home, Register, Login, Navbar, UsersOnly, Admin, Recover, SetPassword, Application } from "./Components/index";
 import { PrivateRoute, PublicRoute, AdminRoute } from "./HoCs/index";
 
 /**
@@ -12,6 +12,7 @@ function App() {
         <Router>
             <Navbar />
             <Route exact path="/" component={Home} />
+            <AdminRoute exact path="/application" component={Application}/>
             <AdminRoute exact path="/admin" component={Admin}/>
             <PublicRoute exact path="/register" component={Register} />
             <PublicRoute exact path="/login" component={Login} />

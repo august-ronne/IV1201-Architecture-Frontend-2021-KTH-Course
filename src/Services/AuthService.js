@@ -95,6 +95,18 @@ const AuthService = {
             })
 
         })
+    },
+    changeStatus: (data) => {
+        console.log('data is ', data)
+        return fetch(`${serverURL}/app/changestatus`, {
+            method: 'post',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((res) => res.json())
+        .then(({serverMessage}) => serverMessage);
     }
 };
 

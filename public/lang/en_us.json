@@ -4,6 +4,7 @@
     "nav.register": "Register",
     "nav.usersonly": "Secret page",
     "nav.recover": "Recover",
+    "nav.application": "Show application",
 
     "title.loading": "Loading...",
     "title.homePage": "Home Page",
@@ -12,6 +13,7 @@
     "title.usersonly": "Secret page for logged in users!",
     "title.recover": "Enter email to recover password",
     "title.setPassword": "Enter recover token and new password",
+    "titel.application": "Application",
 
     "label.email": "Email:",
     "label.password": "Password:",
@@ -19,6 +21,11 @@
     "label.firstName": "First Name:",
     "label.lastName": "Last Name:",
     "label.token": "Recovery token:",
+    "label.role": "Signed in as: {role}",
+    "label.birthdate" : "Born:",
+    "label.competence" : "Competence: ",
+    "label.year.experience": "Years of experience",
+    "label.status": "Application status",
 
     "placeholder.email": "Enter email...",
     "placeholder.password": "Enter password...",
@@ -33,6 +40,7 @@
     "button.submit": "Submit",
 
     "text.usersonly": "Only authenticated users can view this page.",
+    "text.adminsonly": "Applications",
 
     "error.lowercase": "Only enter lowercase letters",
 
@@ -40,6 +48,8 @@
 
     "data.role.applicant": "Applicant",
     "data.role.recruiter": "Recruiter",
+    "data.competence.korvgrillning": "Grill responsible",
+    "data.competence.karuselldrift": "Carousell operator",
 
     "error.badRequest": "Bad request",
     "error.token": "Bad token",
@@ -68,6 +78,14 @@
     "error.validUsername": "Requires valid username",
     "error.validFirstName": "Requires valid first name",
     "error.validLastName": "Requires valid last name",
+    "error.passwordMissmatch": "Password confirmation is not the same as the first password you entered",
+    "error.long": "Your last name must be 50 characters or shorter",
+    "error.short": "Your first name must be at least 2 characters",
 
-    "test": "hello world {val}"
+    "test": "hello world {val}",
+    "option.rejected": "Rejected",
+    "option.accepted": "Accepted",
+    "option.unhandled": "Unhandled",
+
+    "input.change": "Change"
 }

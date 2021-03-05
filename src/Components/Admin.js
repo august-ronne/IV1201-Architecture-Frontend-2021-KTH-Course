@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import T from "../translation";
+import { Link } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 
 /**
@@ -10,17 +11,31 @@ const Admin = () => {
     const [profiles, setProfiles] = useState([]);
 
     useEffect(() => {
-        return () => {
             AuthService.getProfiles().then((servermessage) => {
                 setProfiles(servermessage.profiles)
-                console.log(servermessage.profiles[0].competence.name)
             })
-        };
     }, []);
 
+    const createLinkMessage = (profile) => {
+        return `${profile.person.firstName} ${profile.person.lastName} - ` +
+        T("data.competence." + profile.competence.name) + " - " + T("option." + profile.status.name)
+    }
 
-    return <h1>Admin page, 
-                todo:link to applications and upgrade users to recruiter</h1>;
+
+    
+
+    return ( 
+        <div>
+            <h1>{T("text.adminsonly")}</h1>
+            <ul>
+                {profiles.map(profile => (
+                    <Link to = {{pathname:'/application', state:profile}}>{createLinkMessage(profile)}<br /></Link>
+                ))
+                }
+            </ul>
+        </div>
+
+    )
 };
 
 export default Admin;
