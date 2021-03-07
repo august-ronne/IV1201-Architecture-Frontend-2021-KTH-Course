@@ -41,12 +41,12 @@ const Application = (props) => {
         <div>
             <h1>{T('titel.application')}</h1>
             <div>
-                <p>{T('label.firstName') + `: ${data.state.person.firstName}`}</p>
-                <p>{T('label.lastName') + `: ${data.state.person.lastName}`}</p>
-                <p>{T('label.email') + `: ${data.state.person.email}`}</p>
-                <p>{T('label.birthdate') + `: ${data.state.person.dateOfBirth}`}</p>
+                <p>{T('label.firstName') + ` ${data.state.person.firstName}`}</p>
+                <p>{T('label.lastName') + ` ${data.state.person.lastName}`}</p>
+                <p>{T('label.email') + ` ${data.state.person.email}`}</p>
+                <p>{T('label.birthdate') + ` ${data.state.person.dateOfBirth}`}</p>
                 <p>{T('label.competence') + T("data.competence." + data.state.competence.name)}</p>
-                <p>{T('label.year.experience') + `: ${data.state.years_of_experience}`}</p>
+                <p>{T('label.year.experience') + ` ${data.state.years_of_experience}`}</p>
                 <label htmlFor="status" >{T('label.status')}</label>
                 <Formik 
                     initialValues={{
