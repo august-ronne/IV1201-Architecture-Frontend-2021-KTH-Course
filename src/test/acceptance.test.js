@@ -155,12 +155,12 @@ describe("Login Page", function() {
 				.wait(until.elementLocated(By.id('email-login')), 10000)
 
 			emailInput.clear()
-			emailInput.sendKeys('test@jest.com')
+			emailInput.sendKeys('admin@admin.com')
 
 			let passwordInput = browser
 				.wait(until.elementLocated(By.id('password-login')), 10000)
 			passwordInput.clear()
-			passwordInput.sendKeys('testtest')
+			passwordInput.sendKeys('admin01')
 
 			browser
 				.wait(until.elementLocated(By.id('button-login')), 10000)
