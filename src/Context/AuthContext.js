@@ -33,7 +33,8 @@ function AuthProvider({ children }) {
             setUser(serverMessage.user);
             setIsAuthenticated(serverMessage.isAuthenticated);
             setIsLoaded(true);
-            setRole(serverMessage.user.role)
+            setRole(serverMessage.user ? serverMessage.user.role : null)
+            // setRole(serverMessage.user.role)
         });
     }, []);
 

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import T from "../translation";
 import { Link } from "react-router-dom";
-import AuthService from "../Services/AuthService";
+import ApplicationService from "../Services/ApplicationService";
 
 /**
  * Component showing an admin only page
@@ -11,7 +11,7 @@ const Admin = () => {
     const [profiles, setProfiles] = useState([]);
 
     useEffect(() => {
-            AuthService.getProfiles().then((servermessage) => {
+            ApplicationService.getProfiles().then((servermessage) => {
                 setProfiles(servermessage.profiles)
             })
     }, []);

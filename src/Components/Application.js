@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import T from "../translation";
 import {useLocation} from "react-router-dom";
-import AuthService from "../Services/AuthService";
+import ApplicationService from "../Services/ApplicationService";
 import { Formik, Form, Field } from "formik";
 
 
@@ -28,7 +28,7 @@ const Application = (props) => {
     const handleSubmit = (status) => {
         console.log(status);
         status.id = data.state._id
-        AuthService.changeStatus(status).then((serverMessage) => {
+        ApplicationService.changeStatus(status).then((serverMessage) => {
             console.log(serverMessage);
         });
         setTimeout(function(){ props.history.push('/admin'); }, 500);
