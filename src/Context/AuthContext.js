@@ -23,12 +23,11 @@ function AuthProvider({ children }) {
      */
     useEffect(() => {
         AuthService.isAuthenticated(localStorage.getItem("token")).then((serverMessage) => {
-            console.log("auth", serverMessage);
+            console.log("Result of /auth/userstatus/", serverMessage);
             setUser(serverMessage.user);
             setIsAuthenticated(serverMessage.isAuthenticated);
             setIsLoaded(true);
             setRole(serverMessage.user ? serverMessage.user.role : null);
-            // setRole(serverMessage.user.role)
         });
     }, []);
 

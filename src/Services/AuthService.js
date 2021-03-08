@@ -68,29 +68,6 @@ const AuthService = {
             }
         });
     },
-    userStatus: (user) => {
-        console.log("entered new userStatus method in services");
-        return fetch(`${serverURL}/auth/userstatus`, {
-            method: "post",
-            body: JSON.stringify(user),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then((res) => {
-            console.log("userStatus service", res);
-            if (res.status === 500) {
-                res.json().then(({ serverMessage }) => {
-                    return {
-                        isAuthenticated: false,
-                        user: { uid: "", firstName: "", email: "" },
-                        ...serverMessage,
-                    };
-                });
-            } else {
-                return res.json().then(({ serverMessage }) => serverMessage);
-            }
-        });
-    },
     recover: (user) => {
         return fetch(`${serverURL}/auth/recover`, {
             method: "post",
