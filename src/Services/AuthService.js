@@ -50,7 +50,7 @@ const AuthService = {
     },
     isAuthenticated: (token) => {
         console.log("userino", token);
-        return fetch(`/auth/userstatus`, {
+        return fetch(`${serverURL}/auth/userstatus`, {
             method: "post",
             body: JSON.stringify({token}),
             headers: { "Content-Type": "application/json" },
