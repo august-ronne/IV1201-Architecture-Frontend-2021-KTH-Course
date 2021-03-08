@@ -1,6 +1,5 @@
-const serverURL = process.env.REACT_APP_SERVER_URL;
-// const serverURL = "";
-
+// const serverURL = process.env.REACT_APP_SERVER_URL;
+const serverURL = "";
 
 /**
  * Object holding all relevant services to the client.
@@ -42,16 +41,44 @@ const AuthService = {
             },
         })
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
+            .then(({ serverMessage }) => serverMessage);
     },
     logout: () => {
         return fetch(`${serverURL}/auth/logout`)
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
+            .then(({ serverMessage }) => serverMessage);
     },
-    isAuthenticated: () => {
-        return fetch(`${serverURL}/auth/userstatus`).then((res) => {
-            console.log(res)
+    isAuthenticated: (user) => {
+        console.log("userino", user);
+        return fetch(`${serverURL}/auth/userstatus`, {
+            method: "post",
+            body: JSON.stringify(user),
+            headers: { "Content-Type": "application/json" },
+        }).then((res) => {
+            console.log(res);
+            if (res.status === 500) {
+                res.json().then(({ serverMessage }) => {
+                    return {
+                        isAuthenticated: false,
+                        user: { uid: "", firstName: "", email: "" },
+                        ...serverMessage,
+                    };
+                });
+            } else {
+                return res.json().then(({ serverMessage }) => serverMessage);
+            }
+        });
+    },
+    userStatus: (user) => {
+        console.log("entered new userStatus method in services");
+        return fetch(`${serverURL}/auth/userstatus`, {
+            method: "post",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((res) => {
+            console.log("userStatus service", res);
             if (res.status === 500) {
                 res.json().then(({ serverMessage }) => {
                     return {
@@ -74,7 +101,7 @@ const AuthService = {
             },
         })
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
+            .then(({ serverMessage }) => serverMessage);
     },
     setPassword: (user) => {
         return fetch(`${serverURL}/auth/setpassword`, {
@@ -85,8 +112,8 @@ const AuthService = {
             },
         })
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
-    }
+            .then(({ serverMessage }) => serverMessage);
+    },
 };
 
 export default AuthService;
