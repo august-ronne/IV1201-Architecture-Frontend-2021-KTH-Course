@@ -37,6 +37,9 @@ const Login = (props) => {
             if (isAuthenticated) {
                 setUserMessage(T(msgBody));
                 timerID = setTimeout(() => {
+                    console.log("setting token");
+                    localStorage.setItem("token", user.token);
+                    console.log("new token?", localStorage.getItem("token"));
                     authContext.setUser(user);
                     authContext.setIsAuthenticated(isAuthenticated);
                     authContext.setRole(user.role)
