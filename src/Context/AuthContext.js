@@ -11,7 +11,7 @@ import T from "../translation";
 export const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [role, setRole] = useState("");
@@ -22,13 +22,8 @@ function AuthProvider({ children }) {
      * Initializes the context with relevant information.
      */
     useEffect(() => {
-        console.log("enters useEffect");
-        AuthService.isAuthenticated(user).then((serverMessage) => {
+        AuthService.isAuthenticated(localStorage.getItem("token")).then((serverMessage) => {
             console.log("auth", serverMessage);
-            // if(!serverMessage.accepted) {
-            //     setIsLoaded(true);
-            //     return;
-            // }
             setUser(serverMessage.user);
             setIsAuthenticated(serverMessage.isAuthenticated);
             setIsLoaded(true);

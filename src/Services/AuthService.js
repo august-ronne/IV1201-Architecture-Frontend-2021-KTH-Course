@@ -48,14 +48,13 @@ const AuthService = {
             .then((res) => res.json())
             .then(({ serverMessage }) => serverMessage);
     },
-    isAuthenticated: (user) => {
-        console.log("userino", user);
-        return fetch(`${serverURL}/auth/userstatus`, {
+    isAuthenticated: (token) => {
+        console.log("userino", token);
+        return fetch(`/auth/userstatus`, {
             method: "post",
-            body: JSON.stringify(user),
+            body: JSON.stringify({token}),
             headers: { "Content-Type": "application/json" },
         }).then((res) => {
-            console.log(res);
             if (res.status === 500) {
                 res.json().then(({ serverMessage }) => {
                     return {
