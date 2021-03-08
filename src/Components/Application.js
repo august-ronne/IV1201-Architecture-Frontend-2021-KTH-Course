@@ -10,13 +10,13 @@ import { Formik, Form, Field } from "formik";
  */
 const Application = (props) => {
     let data= useLocation()
-    console.log(data.state)
+    // console.log(data.state)
 
     const [status, setStatus] = useState('');
 
     useEffect(() => {
         setStatus(data.state.status.name)
-        console.log('test ' + status)
+        // console.log('test ' + status)
         let select = document.getElementById('status')
         select.value = data.state.status.name
         // AuthService.getProfiles().then((servermessage) => {
@@ -26,8 +26,9 @@ const Application = (props) => {
     }, []);
 
     const handleSubmit = (status) => {
-        console.log(status);
+        // console.log(status);
         status.id = data.state._id
+        status.token = localStorage.getItem("token")
         ApplicationService.changeStatus(status).then((serverMessage) => {
             console.log(serverMessage);
         });

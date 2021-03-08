@@ -2,9 +2,12 @@ const serverURL = process.env.REACT_APP_SERVER_APP_URL;
 // const serverURL = "";
 
 const ApplicationService = {
-    getProfiles: () => {
-        return fetch(`${serverURL}/app/competences`).then((res) => {
-            console.log(res)
+    getProfiles: (token) => {
+        return fetch(`${serverURL}/app/competences`, {
+                    method: "post",
+                    body: JSON.stringify({token}),
+                    headers: { "Content-Type": "application/json" },
+                }).then((res) => {
             return res.json().then(({serverMessage}) => {
                 return serverMessage
             })
@@ -12,7 +15,6 @@ const ApplicationService = {
         })
     },
     changeStatus: (data) => {
-        console.log('data is ', data)
         return fetch(`${serverURL}/app/changestatus`, {
             method: 'post',
             body: JSON.stringify(data),

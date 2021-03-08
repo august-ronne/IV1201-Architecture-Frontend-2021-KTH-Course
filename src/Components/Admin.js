@@ -11,7 +11,7 @@ const Admin = () => {
     const [profiles, setProfiles] = useState([]);
 
     useEffect(() => {
-            ApplicationService.getProfiles().then((servermessage) => {
+            ApplicationService.getProfiles(localStorage.getItem("token")).then((servermessage) => {
                 setProfiles(servermessage.profiles)
             })
     }, []);
