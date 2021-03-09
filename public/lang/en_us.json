@@ -24,7 +24,7 @@
     "label.role": "Signed in as: {role}",
     "label.birthdate" : "Born:",
     "label.competence" : "Competence: ",
-    "label.year.experience": "Years of experience",
+    "label.year.experience": "Years of experience: ",
     "label.status": "Application status",
 
     "placeholder.email": "Enter email...",

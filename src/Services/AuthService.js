@@ -1,6 +1,5 @@
-// const serverURL = process.env.REACT_APP_SERVER_URL;
-const serverURL = "";
-
+const serverURL = process.env.REACT_APP_SERVER_URL;
+// const serverURL = "";
 
 /**
  * Object holding all relevant services to the client.
@@ -42,16 +41,20 @@ const AuthService = {
             },
         })
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
+            .then(({ serverMessage }) => serverMessage);
     },
     logout: () => {
         return fetch(`${serverURL}/auth/logout`)
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
+            .then(({ serverMessage }) => serverMessage);
     },
-    isAuthenticated: () => {
-        return fetch(`${serverURL}/auth/userstatus`).then((res) => {
-            console.log(res)
+    isAuthenticated: (token) => {
+        console.log("userino", token);
+        return fetch(`/auth/userstatus`, {
+            method: "post",
+            body: JSON.stringify({token}),
+            headers: { "Content-Type": "application/json" },
+        }).then((res) => {
             if (res.status === 500) {
                 res.json().then(({ serverMessage }) => {
                     return {
@@ -74,7 +77,7 @@ const AuthService = {
             },
         })
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
+            .then(({ serverMessage }) => serverMessage);
     },
     setPassword: (user) => {
         return fetch(`${serverURL}/auth/setpassword`, {
@@ -85,29 +88,8 @@ const AuthService = {
             },
         })
             .then((res) => res.json())
-            .then(({serverMessage}) => serverMessage);
+            .then(({ serverMessage }) => serverMessage);
     },
-    getProfiles: () => {
-        return fetch(`${serverURL}/app/competences`).then((res) => {
-            console.log(res)
-            return res.json().then(({serverMessage}) => {
-                return serverMessage
-            })
-
-        })
-    },
-    changeStatus: (data) => {
-        console.log('data is ', data)
-        return fetch(`${serverURL}/app/changestatus`, {
-            method: 'post',
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-        .then((res) => res.json())
-        .then(({serverMessage}) => serverMessage);
-    }
 };
 
 export default AuthService;

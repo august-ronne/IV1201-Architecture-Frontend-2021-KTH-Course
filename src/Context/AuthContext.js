@@ -8,7 +8,6 @@ import T from "../translation";
     to the global state. You also have to "consume" the global state
 */
 
-
 export const AuthContext = createContext();
 
 function AuthProvider({ children }) {
@@ -17,23 +16,19 @@ function AuthProvider({ children }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [role, setRole] = useState("");
 
-    console.log('isAuthenticated change ', isAuthenticated)
+    console.log("isAuthenticated change ", isAuthenticated);
 
     /**
      * Initializes the context with relevant information.
      */
     useEffect(() => {
-        console.log('enters useEffect')
-        AuthService.isAuthenticated().then((serverMessage) => {
-            console.log('auth', serverMessage);
-            // if(!serverMessage.accepted) {
-            //     setIsLoaded(true);
-            //     return;
-            // }
+        AuthService.isAuthenticated(localStorage.getItem("token")).then((serverMessage) => {
+            console.log("Result of /auth/userstatus/", serverMessage);
             setUser(serverMessage.user);
             setIsAuthenticated(serverMessage.isAuthenticated);
             setIsLoaded(true);
             setRole(serverMessage.user ? serverMessage.user.role : null)
+
         });
     }, []);
 
@@ -49,7 +44,7 @@ function AuthProvider({ children }) {
                         isAuthenticated,
                         setIsAuthenticated,
                         role,
-                        setRole
+                        setRole,
                     }}
                 >
                     {children}

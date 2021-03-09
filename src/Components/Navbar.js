@@ -22,9 +22,10 @@ const Navbar = (props) => {
     const onClickLogoutHandler = () => {
         AuthService.logout().then((serverMessage) => {
             if (!serverMessage.isError) {
+                localStorage.clear();
                 setUser(serverMessage.user);
                 setIsAuthenticated(false);
-                setRole("")
+                setRole("");
             }
         });
     };

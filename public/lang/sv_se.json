@@ -24,7 +24,7 @@
     "label.role": "Inloggad som: {role}",
     "label.birthdate" : "Född",
     "label.competence" : "Kompetens: ",
-    "label.year.experience": "År av erfarenhet",
+    "label.year.experience": "År av erfarenhet:",
     "label.status": "Status av applikation",
 
     "placeholder.email": "Ange email...",
