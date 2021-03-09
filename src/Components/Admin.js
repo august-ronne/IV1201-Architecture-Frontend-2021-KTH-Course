@@ -29,7 +29,7 @@ const Admin = () => {
             <h1>{T("text.adminsonly")}</h1>
             <ul>
                 {profiles.map(profile => (
-                    <Link to = {{pathname:'/application', state:profile}}>{createLinkMessage(profile)}<br /></Link>
+                    <Link id={"profile-"+profile._id} to = {{pathname:'/application', state:profile}}>{createLinkMessage(profile)}<br /></Link>
                 ))
                 }
             </ul>

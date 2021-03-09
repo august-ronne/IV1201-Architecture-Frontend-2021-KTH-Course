@@ -60,7 +60,7 @@ const Application = (props) => {
                             <option value = "accepted">{T('option.accepted')}</option>
                             <option value = "rejected">{T('option.rejected')}</option>
                         </Field>
-                        <input type="submit" value={T('input.change')}></input>
+                        <input id="button-application" type="submit" value={T('input.change')}></input>
                     </Form>
                 </Formik>
             </div>
