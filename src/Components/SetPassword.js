@@ -28,7 +28,7 @@ const SetPassword = (props) => {
     };
 
     return (
-        <div>
+        <div id="setpassword-body">
             <h3>{T("title.setPassword")}</h3>
             <Formik
                 initialValues={{
@@ -41,13 +41,14 @@ const SetPassword = (props) => {
                 {({ errors, touched }) => (
                     <Form>
                         <label htmlFor="token">{T("label.token")}</label>
-                        <Field name="token" placeholder={T("placeholder.token")} />
+                        <Field id="setpassword-token" name="token" placeholder={T("placeholder.token")} />
                         {errors.token && touched.token ? (
                             <Message message={errors.token} />
                         ) : null}
 
                         <label htmlFor="password">{T("label.password")}</label>
                         <Field
+                            id="setpassword-password"
                             name="password"
                             type="password"
                             placeholder={T("placeholder.password")}
@@ -56,7 +57,7 @@ const SetPassword = (props) => {
                             <Message message={errors.password} />
                         ) : null}
 
-                        <button type="submit">{T("button.submit")}</button>
+                        <button id="button-setpassword" type="submit">{T("button.submit")}</button>
                         {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}

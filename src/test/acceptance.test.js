@@ -231,7 +231,100 @@ describe("Admin page", function() {
 				.then((elem) => resolve())
 		});
 	});
+
+	it("should load a profile application", function() {
+		return new Promise(async (resolve, reject) => {
+
+			// await browser.sleep(2000)
+
+			browser
+				.wait(until.elementLocated(By.id("profile-6042332978fd99560ccf6f25")), 10000)
+				.click()
+				.then((elem) => resolve())
+		});
+	});
+
+	it("should successfully logout", async function() {
+
+		return new Promise(async (resolve, reject) => {
+
+			await browser.sleep(3000)
+			
+			browser
+				.wait(until.elementLocated(By.id('logout-navbar')), 10000)
+				.click()
+				.then((elem) => resolve())
+		});
+	});
 })
+
+describe("Recover", function() {
+
+	it("should get a valid response from recover", function() {
+		return new Promise(async (resolve, reject) => {
+			browser.get(serverUri + "recover") 
+
+			// await browser.sleep(2000)
+
+			browser
+				.wait(until.elementLocated(By.id('button-recover')), 10000)
+				.click()
+				.then((elem) => resolve())
+		});
+	});
+
+	it("should get a valid response from recovery", async function() {
+
+		return new Promise(async (resolve, reject) => {
+			browser.get(serverUri + "recover") 
+			
+			browser
+				.wait(until.elementLocated(By.id('recover-email')), 10000)
+				.sendKeys('test@test.com')
+
+			browser
+				.wait(until.elementLocated(By.id('button-recover')), 10000)
+				.click()
+				.then((elem) => resolve())
+		});
+	});
+});
+
+describe("SetPassword", function() {
+
+	it("should get a valid response from setpassword", function() {
+		return new Promise(async (resolve, reject) => {
+			browser.get(serverUri + "recoverpwd") 
+
+			// await browser.sleep(2000)
+
+			browser
+				.wait(until.elementLocated(By.id('button-setpassword')), 10000)
+				.click()
+				.then((elem) => resolve())
+		});
+	});
+
+	it("should get a valid response from setpassword", async function() {
+
+		return new Promise(async (resolve, reject) => {
+			
+			browser
+				.wait(until.elementLocated(By.id('setpassword-token')), 10000)
+				.sendKeys('token')
+			
+			browser
+				.wait(until.elementLocated(By.id('setpassword-password')), 10000)
+				.sendKeys('test@password.com')
+
+			browser
+				.wait(until.elementLocated(By.id('button-setpassword')), 10000)
+				.click()
+				.then((elem) => resolve())
+		});
+	});
+});
+
 
 
 afterAll(function() {

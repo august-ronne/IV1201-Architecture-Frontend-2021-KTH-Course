@@ -1,9 +1,12 @@
-# IMPORTANT
+# IMPORTANT (READ FIRST)
 
-Download and install the back-end for this application before continuing with this tutorial.
-The back-end and its documentation can be found here:
-
+1. Download and install the authentication back-end for this application **before** finishing this tutorial.
+  The authentication back-end and its documentation can be found here:
 **https://github.com/august-ronne/iv1201-auth**
+
+2. Download and install the job application back-end for this application **before** finishing this tutorial.
+  The authentication back-end and its documentation can be found here:
+**https://github.com/august-ronne/iv1201-applications**
 
 
 ____
