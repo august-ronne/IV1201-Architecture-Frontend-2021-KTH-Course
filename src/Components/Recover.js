@@ -33,7 +33,7 @@ const Recover = (props) => {
     };
 
     return (
-        <div>
+        <div id="recover-body">
             <h3>{T("title.recover")}</h3>
             <Formik
                 initialValues={{
@@ -45,12 +45,12 @@ const Recover = (props) => {
                 {({ errors, touched }) => (
                     <Form>
                         <label htmlFor="email">{T("label.email")}</label>
-                        <Field name="email" placeholder={T("placeholder.email")} />
+                        <Field id="recover-email" name="email" placeholder={T("placeholder.email")} />
                         {errors.email && touched.email ? (
                             <Message message={errors.email} />
                         ) : null}
 
-                        <button type="submit">{T("button.submit")}</button>
+                        <button id="button-recover" type="submit">{T("button.submit")}</button>
                         {userMessage ? <Message message={userMessage} /> : null}
                     </Form>
                 )}

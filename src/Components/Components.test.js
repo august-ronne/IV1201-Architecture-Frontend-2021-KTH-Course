@@ -5,6 +5,10 @@ import Login from "./Login"
 import Message from "./Message"
 import Navbar from "./Navbar"
 import Register from "./Register"
+import Recover from "./Recover"
+import SetPassword from "./SetPassword"
+import Admin from "./Admin"
+import Application from "./Application"
 import UsersOnly from "./UsersOnly"
 import "../setupTests"
 import { act } from 'react-dom/test-utils';
@@ -200,6 +204,137 @@ describe('Register', () => {
         expect(passwordInput.html()).toMatch('password')
     })
 })
+
+describe('Recover', () => {
+    it ('render correctly', () => {
+        render(<Recover/>)
+    })
+    it("Should change email correctly onChange", () => {
+        let tree = null
+        let emailInput = null;
+
+        act(() => {
+            tree = mount(<Recover/>)
+
+            emailInput = tree.find("input[name='email']")
+    
+            emailInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'email',
+                    value: 'email'
+                }
+            })
+        })
+
+        expect(emailInput.html()).toMatch('email')
+    })
+})
+
+describe('Recover', () => {
+    it ('render correctly', () => {
+        render(<Recover/>)
+    })
+    it("Should change email correctly onChange", () => {
+        let tree = null
+        let emailInput = null;
+
+        act(() => {
+            tree = mount(<Recover/>)
+
+            emailInput = tree.find("input[name='email']")
+    
+            emailInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'email',
+                    value: 'email'
+                }
+            })
+        })
+
+        expect(emailInput.html()).toMatch('email')
+    })
+})
+
+describe('SetPassword', () => {
+    it ('render correctly', () => {
+        render(<SetPassword/>)
+    })
+    it("Should change token correctly onChange", () => {
+        let tree = null
+        let tokenInput = null;
+
+        act(() => {
+            tree = mount(<SetPassword/>)
+
+            tokenInput = tree.find("input[name='token']")
+    
+            tokenInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'token',
+                    value: 'token'
+                }
+            })
+        })
+
+        expect(tokenInput.html()).toMatch('token')
+    })
+    it("Should change password correctly onChange", () => {
+        let tree = null
+        let passwordInput = null;
+
+        act(() => {
+            tree = mount(<SetPassword/>)
+
+            passwordInput = tree.find("input[name='password']")
+    
+            passwordInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'password',
+                    value: 'password'
+                }
+            })
+        })
+
+        expect(passwordInput.html()).toMatch('password')
+    })
+})
+
+
+describe('Admin', () => {
+    it ('render correctly', () => {
+        render(<Admin/>)
+    })
+})
+
+/*describe('Application', () => {
+    it ('render correctly', () => {
+        render(<Application/>)
+    })
+    it("Should change select correctly onChange", () => {
+        let tree = null
+        let selectInput = null;
+
+        act(() => {
+            tree = mount(<Application/>)
+
+            selectInput = tree.find("input[name='select']")
+    
+            selectInput.simulate('change', {
+                persists: () => {},
+                target: {
+                    name: 'select',
+                    value: 'unhandled'
+                }
+            })
+        })
+
+        expect(selectInput.html()).toMatch('unhandled')
+    })
+})*/
 
 describe("UsersOnly", () => {
     it ('renders correctly', () => {
