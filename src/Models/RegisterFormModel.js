@@ -9,13 +9,13 @@ const RegisterSchema = yup.object().shape({
         .matches(/^[a-z]*$/, "error.lowercase")// "Only enter lowercase letters"
         .min(2, "error.short") // "Your first name must be at least 2 characters"
         .max(50, "error.long") // "Your last name must be 50 characters or shorter"
-        .required("error.validFirstname"), // "You must enter your first name"
+        .required("error.validFirstName"), // "You must enter your first name"
     lastName: yup
         .string()
         .matches(/^[a-z]*$/, "error.lowercase") // "Only enter lowercase letters"
         .min(2, "error.short") // "Your last name must be at least 2 characters"
         .max(50, "error.long") // "Your last name must be 50 characters or shorter"
-        .required("error.validLastname"), // "You must enter your last name"
+        .required("error.validLastName"), // "You must enter your last name"
     email: yup
         .string()
         .email("error.validEmail")
@@ -29,7 +29,7 @@ const RegisterSchema = yup.object().shape({
         .required("error.validUsername")
         .matches(
             /^[a-zA-Z0-9]+$/,
-            "error.validPassword" // "Only lowercase and capital letters, as well as numbers are allowed"
+            "error.validUsername" // "Only lowercase and capital letters, as well as numbers are allowed"
         ),
     password: yup
         .string()
