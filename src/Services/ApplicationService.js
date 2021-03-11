@@ -1,5 +1,5 @@
-// const serverURL = process.env.REACT_APP_SERVER_APP_URL;
-const serverURL = "";
+const serverURL = process.env.REACT_APP_SERVER_APP_URL;
+// const serverURL = "";
 
 const ApplicationService = {
     getProfiles: (token) => {

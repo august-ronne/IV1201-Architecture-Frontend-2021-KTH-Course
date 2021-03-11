@@ -1,5 +1,5 @@
-// const serverURL = process.env.REACT_APP_SERVER_URL;
-const serverURL = "";
+const serverURL = process.env.REACT_APP_SERVER_URL;
+// const serverURL = "";
 
 /**
  * Object holding all relevant services to the client.
