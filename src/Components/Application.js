@@ -6,7 +6,7 @@ import { Formik, Form, Field } from "formik";
 
 
 /**
- * Component which is only shown if user is authenticated.
+ * Component which is only shown if user is authorized.
  */
 const Application = (props) => {
     let data= useLocation()

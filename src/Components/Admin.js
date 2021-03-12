@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ApplicationService from "../Services/ApplicationService";
 
 /**
- * Component showing an admin only page
+ * Component showing an admin only page (or only for a recuiter)
  */
 const Admin = () => {
 
